@@ -10,14 +10,11 @@ function getEvents() {
     $.ajax({
         url: "https://edmtrain.com/api/events?" + query,
         method: "GET",
-        contentType: 'text/plain',
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-        }
+
     }).done(function (response) {
         var dataList = response.data
         for (var i in dataList) {
-            events[dataList[i].id] = datalist[i]
+            events[dataList[i].id] = dataList[i]
         }
         console.log(events)
     }).fail(function () {
