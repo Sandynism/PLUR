@@ -42,3 +42,5 @@ function getStateId() {
         console.log(locationData)
     })
 }
+
+
