@@ -1,7 +1,7 @@
-Client ID c9b491e9d7b943dcbc6a3709f7203a8c
-Client Secret eff362d2997540559c1f9ff6ee5e6b2a
+let client_id = "c9b491e9d7b943dcbc6a3709f7203a8c"
+let client_secret = "eff362d2997540559c1f9ff6ee5e6b2a"
 
-Get Request "https://accounts.spotify.com/authorize"
+let queryURL = "https://accounts.spotify.com/authorize" + "?client_id=" + client_id 
 
 $.ajax({
     url: queryURL,
