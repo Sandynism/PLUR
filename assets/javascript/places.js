@@ -1,5 +1,8 @@
 var placesAutocomplete = places({
-    container: document.querySelector('#address-input')
+    container: document.querySelector('#address-input'),
+    countries: 'us',
+    type: 'city',
+    language: 'en'
   });
 
 {/* <input type="search" id="address-input" placeholder="Where are we going?" /> */}
