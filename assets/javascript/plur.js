@@ -6,7 +6,9 @@ var eventParameters = {
 }
 
 function getEvents() {
+    events = {}
     var query = $.param(eventParameters);
+    console.log(query)
     $.ajax({
         url: "https://edmtrain.com/api/events?" + query,
         method: "GET",
@@ -16,6 +18,7 @@ function getEvents() {
             events[dataList[i].id] = dataList[i]
         }
         console.log(events)
+        $("tbody").empty()
         for (var i in events){
             createRow(events[i])
         }
@@ -30,7 +33,7 @@ function getEvents() {
 
 var locationParameters = {
     client: "d5cf6acf-f0c3-408b-9a6c-31d016f980aa",
-    location: "New York"
+    state: "New York"
 }
 
 function getStateId() {
@@ -39,9 +42,16 @@ function getStateId() {
         url: "https://edmtrain.com/api/locations?" + query,
         method: "GET"
     }).done(function (response) {
-        console.log(response)
+        var locations = ""
+        for (var i in response.data){
+            var location = response.data[i]
+            locations+=location.id+","
+        }
+        console.log(locations)
+        eventParameters.locationIds = locations
+        getEvents()
     }).fail(function () {
-        console.log(locationData)
+        alert("Bad Location")
     })
 }
 
@@ -62,7 +72,15 @@ function createRow(event){
     row.append(name)
     var date = $("<td>").text(event.date)
     row.append(date)
+    // var yelpLink = getYelpLink(address)
     $("tbody").append(row)
 }
 
-getEvents()
+$(function(){
+    $(":submit").click(function(){
+        event.preventDefault()
+        var state = $("input[type = search]").val()
+        locationParameters.state = state
+        getStateId()
+    })
+})
