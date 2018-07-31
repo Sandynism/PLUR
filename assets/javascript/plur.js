@@ -72,6 +72,8 @@ function createRow(event){
     row.append(name)
     var date = $("<td>").text(event.date)
     row.append(date)
+    var address = $("<td>").text(event.venue.address)
+    row.append(address)
     // var yelpLink = getYelpLink(address)
     $("tbody").append(row)
 }
