@@ -16,7 +16,9 @@ function getEvents() {
         for (var i in dataList) {
             events[dataList[i].id] = dataList[i]
         }
-        console.log(events)
+        for (var i in events){
+            createRow(events[i])
+        }
     }).fail(function () {
         var response = eventsData
         var dataList = response.data
@@ -44,3 +46,11 @@ function getStateId() {
 }
 
 
+function createRow(event){
+    var row = $("<tr href = '"+event.link+"'>")
+    var name = $("<td>").text(event.name)
+    row.append(name)
+    var date = $("<td>").text(event.date)
+    row.append(date)
+    $("tbody").append(row)
+}
