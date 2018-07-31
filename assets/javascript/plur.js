@@ -10,12 +10,12 @@ function getEvents() {
     $.ajax({
         url: "https://edmtrain.com/api/events?" + query,
         method: "GET",
-
     }).done(function (response) {
         var dataList = response.data
         for (var i in dataList) {
             events[dataList[i].id] = dataList[i]
         }
+        console.log(events)
         for (var i in events){
             createRow(events[i])
         }
@@ -45,12 +45,24 @@ function getStateId() {
     })
 }
 
-
 function createRow(event){
     var row = $("<tr href = '"+event.link+"'>")
-    var name = $("<td>").text(event.name)
+    var eventName = event.name
+    if (eventName == null){
+        eventName = "Artists: "
+        for (var i in event.artistList){
+            if (i==0){
+                eventName += event.artistList[i].name
+                continue
+            }
+            eventName += ", "+event.artistList[i].name
+        }
+    }
+    var name = $("<td>").text(eventName)
     row.append(name)
     var date = $("<td>").text(event.date)
     row.append(date)
     $("tbody").append(row)
 }
+
+getEvents()
