@@ -14,6 +14,9 @@
   table {
       border-collapse: collapse;
       width: 100%;
+      background: rgb(7, 98, 216);
+      opacity:0.9;
+      
   }
   
   th, td {
