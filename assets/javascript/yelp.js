@@ -7,6 +7,7 @@ let queryURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/busi
 let businesses = {}
 
 const API_KEY = 'hiW4XNb5cHEefcQY0jBx9ryKezdFrJDbjEa_QlkjotoTdY_Vdwjm5EHLk14U6WLItQfNHBifAcGCEqwImzw7Wl0SBIaL-d5JfBI-2Dl_4IyCNkTBn40fKxjgTiZZW3Yx'
+
 $.ajax({
     url: queryURL,
     method: "GET",
