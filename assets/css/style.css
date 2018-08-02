@@ -1,5 +1,5 @@
   .trbc, .card-deck {
-    background:transparent !important;
+    background:transparent 
   }
 
   .card-deck {
@@ -7,14 +7,9 @@
   }
   
   p, li, td, th, h1, h2, h3, h4 {
-    color: rgb(141, 217, 247) !important;
+    color: rgb(141, 217, 247) 
   }
   
-  body {
-    /* background: url("../images/bc.jpg"); */
-    /* font-family: ''; */
-    
-  }
   
   table {
     border-collapse: collapse;
@@ -63,7 +58,7 @@
   }
 
   #address-input {
-    width: 225px;
+    width: 175px;
     margin-right: 10px;
   }
 
@@ -91,19 +86,25 @@
 
   .jumbotron {
     margin-top: 20px;
+    position: relative;
+  }
+
+  .animate {
+    position: absolute;
+    top: 200px;
+    width: 100%;
   }
 
   #animation {
     font-family: 'Patrick Hand';
-    font-size: 50px;
-    letter-spacing: 3px;
-    text-align: center;
+    font-size: 100px;
+    letter-spacing: 30px;
     background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     -webkit-background-size: 200% 100%;
     -webkit-animation: masked-animation 4s infinite linear;
-     }
+  }
 
    @-webkit-keyframes masked-animation {
     0%{ background-position: 0 0;}
@@ -115,5 +116,11 @@
     width: 100%;
   }
 
-  font-family: 'Amatic SC';
-    letter-spacing: 2px;
+  .modalHeader h1{
+    text-align: center;
+    font-family: 'Acme';
+    color: black;
+    
+    /* Acme%7CAmatic+SC%7CFredoka+One%7CPatrick+Hand%7CPermanent+Marker%7CPoiret+One */
+  }
+ /* TODO: add mobile responsive at 808px-- for the animation to disappear */

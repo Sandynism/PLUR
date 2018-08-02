@@ -16,43 +16,48 @@
 
 <body>
     
-<nav class="trbc navbar navbar-light bg-light justify-content-between">
-    
-    <form class="form-inline bootstrap-iso">
-        <input class="form-control" id="address-input" type="search" placeholder="Search Cities">
-            <div id="startDatePicker" class="input-group date" data-date-format="mm-dd-yyyy">
-                <input class="form-control start-date" type="text" />
-                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <form class="form-inline bootstrap-iso">
+                    <input class="form-control" id="address-input" type="search" list="options" placeholder="Select a State">
+                    <datalist id="options">
+                        <!-- List of states go here -->
+                    </datalist>
+                    <div id="startDatePicker" class="input-group date" data-date-format="mm-dd-yyyy">
+                        <input class="form-control start-date" type="text" placeholder="Start Date"/>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                    <div id="endDatePicker" class="input-group date" data-date-format="mm-dd-yyyy">
+                        <input class="form-control end-date" type="text" placeholder="End Date"/>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                    <div class="button"><button class="btn btn-outline-success" name="submit" type="submit">Submit</button></div>
+                </form>
+                        
+                <div class="navbar-header">
+                    <img src="assets/images/logo.png" height="50" width="200">
+                </div>
+                                    
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Login
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item login" href="modal.html">User Login</a>
+                        <a class="dropdown-item favorites" href="#">Favorites</a>
+                    </div>
+                    </div>
             </div>
-            <div id="endDatePicker" class="input-group date" data-date-format="mm-dd-yyyy">
-                <input class="form-control end-date" type="text" placeholder="End Date"/>
-                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-            </div>
-            <div class="button"><button class="btn btn-outline-success" name="submit" type="submit">Submit</button></div>
-    </form>
-    
-    <img src="assets/images/logo.png" height="50" width="200">
+         </nav>
 
-    <button class="btn btn-outline-danger" id="favoritesButton">Wishlist</button>
-
-    <!-- <form class="form-inline my-2 my-lg-0">
-        <a class="btn btn-outline-primary" href="#">Sign Up/Log in</a>
-        <img src="assets/images/profile.png" height="50" width="50">
-    </form> -->
-</nav>
-
-
-<!-- <div class="px-3 py-3 pt-md-4 pb-md-1 mx-auto text-center">
-    <img src="assets/images/icon.png" height="220" width="400">
-</div> -->
 <div class="container">
-
-        <div class="text-center" id="animation"></div>
     <div class="jumbotron headerImage">
-        <img src="assets/images/gif3.gif" alt="headerImage"/>
+        <div class="animate">
+            <!-- <div class="text-center" id="animation"></div> -->
+        </div>
+        <img src="assets/images/bc.jpg" alt="headerImage"/>
     </div>
-    
-
 </div>
 
 <div class="container">
@@ -116,8 +121,8 @@
         </div>
     </div>
 
-    <div class="container map">
-        <div class="card-deck mb-6 text-center trbc">
+    <div class="container">
+        <div class="card-deck mb-6 text-center trbc map">
             <div class="card mb-6 shadow-sm">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">Map Coming Soon...</h4>
@@ -128,9 +133,11 @@
                 </div>
             </div>
         </div>
+
+        <div class="cardDisplay"></div>
     </div>
 
-    <div class="cardDisplay"></div>
+    
     <div class="lightbox"></div>
 
     <div class="modal favoriteModal" tabindex="-1" role="dialog">
@@ -149,17 +156,29 @@
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/places.js@1.7.3"></script>
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-    <script src="assets/javascript/plur.js"></script>
-    <script src = "assets/javascript/UITools.js"></script>
-    <script src = "assets/javascript/yelp.js"></script>
+
+    <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src ="https://cdn.jsdelivr.net/npm/places.js@1.7.3"></script> -->
+    <script src ="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src ="assets/javascript/plur.js"></script>
+    <script src ="assets/javascript/UITools.js"></script>
+    <script src ="assets/javascript/yelp.js"></script>
     <script src ="assets/css/style.css"></script>
-    <script src="assets/javascript/places.js"></script>
-    <script src="assets/javascript/datepicker.js"></script>
-    <script src="assets/javascript/messenger.js"></script>
+    <script src ="assets/javascript/places.js"></script>
+    <script src ="assets/javascript/datepicker.js"></script>
+    <script src ="assets/javascript/messenger.js"></script>
+
+    <script>
+            $(document).ready(function(){
+                let states = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
+                states.forEach(function(element) {
+                   $('#options').append($(`<option value="${element}">`))
+               })
+        });
+        </script>
+
 
     </body>
 
