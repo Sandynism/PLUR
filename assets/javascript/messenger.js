@@ -8,8 +8,13 @@ Messenger = function (el) {
             m.current_length = 0
             m.fadeBuffer = false
             m.messages = [
-                'EAT, SLEEP, RAVE & REPEAT',
-                'PEACE, LOVE, UNITY, RESPECT',
+                'EAT, SLEEP', 
+                'RAVE', 
+                'REPEAT',
+                'PEACE', 
+                'LOVE', 
+                'UNITY', 
+                'RESPECT',
             ]
 
             setTimeout(m.animateIn, 200)
