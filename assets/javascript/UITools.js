@@ -55,11 +55,12 @@ function heartButtonClick(that) {
 }
 
 function createCard(event) {
-  var card = $("<div>").addClass("card py-2")
+  var card = $("<div>").addClass("card bg-light p-3 w-50 my-3 shadow-sm")
 
-  var topRow = $("<div>").addClass("row m-3")
+  var topRow = $("<div>").addClass("row")
 
   var nameCol = $("<div>").addClass("col-8")
+  var nameElem = $("<h5>").addClass("card-title")
   var eventName = event.name
   if (eventName == null) {
     eventName = "Artists: "
@@ -71,17 +72,19 @@ function createCard(event) {
       eventName += ", " + event.artistList[i].name
     }
   }
-  nameCol.text(eventName)
+  nameElem.text(eventName)
+  nameCol.append(nameElem)
   topRow.append(nameCol)
 
-  var dateCol = $("<div>").addClass("col-4")
+  var dateCol = $("<div>").addClass("col-4 text-right")
   dateCol.text(event.date)
   topRow.append(dateCol)
   card.append(topRow)
 
-  var bottomRow = $("<div>").addClass('row m-3')
+  var bottomRow = $("<div>").addClass('row')
   var locationCol = $("<div>").addClass("col")
   locationCol.text(event.venue.address)
   bottomRow.append(locationCol)
   card.append(bottomRow)
+  $(".cardDisplay").append(card)
 }
