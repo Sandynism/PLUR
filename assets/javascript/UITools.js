@@ -53,14 +53,7 @@ function heartButtonClick(that) {
     changeLikedButton('empty', id)
   }
 }
-
-function createCard(event) {
-  var card = $("<div>").addClass("card bg-light p-3 w-50 my-3 shadow-sm")
-
-  var topRow = $("<div>").addClass("row")
-
-  var nameCol = $("<div>").addClass("col-8")
-  var nameElem = $("<h5>").addClass("card-title")
+function createEventName(event){
   var eventName = event.name
   if (eventName == null) {
     eventName = "Artists: "
@@ -72,6 +65,17 @@ function createCard(event) {
       eventName += ", " + event.artistList[i].name
     }
   }
+  return eventName
+}
+function createCard(event) {
+  var card = $("<div>").addClass("card eventCard bg-light p-3 w-75 my-3 shadow-sm")
+  card.attr('data', JSON.stringify(event))
+
+  var topRow = $("<div>").addClass("row")
+
+  var nameCol = $("<div>").addClass("col-8")
+  var nameElem = $("<h5>").addClass("card-title")
+  var eventName = createEventName(event)
   nameElem.text(eventName)
   nameCol.append(nameElem)
   topRow.append(nameCol)
@@ -85,6 +89,34 @@ function createCard(event) {
   var locationCol = $("<div>").addClass("col")
   locationCol.text(event.venue.address)
   bottomRow.append(locationCol)
+
+  if (event.festivalInd == true) {
+    locationCol.addClass('col-10')
+    var badgeCol = $("<div>").addClass('col-2 text-right')
+    var badgeText = $("<p>").addClass("badge-warning text-black text-center")
+    badgeText.text('Electronic Festival')
+    badgeCol.append(badgeText)
+    bottomRow.append(badgeCol)
+  }
+
   card.append(bottomRow)
   $(".cardDisplay").append(card)
 }
+
+function lightbox(event) {
+  $(".lightbox").show()
+  var eventName = createEventName(event)
+  $(".lightbox-title").text(eventName)
+  $(".lightbox-date").text(event.date)
+  $(".lightbox-address").text(event.venue.address)
+  $(".lightbox-venue").text(event.venue.name)
+  $(".lightbox-ticketURL").attr('href',event.ticketLink)
+  $(".lightbox-infoURL").attr('href',event.link)
+}
+
+$(function () {
+  $(".cardDisplay").on("click", "eventCard", function () {
+    var event = JSON.stringify($(this).attr('data'))
+    lightbox(event)
+  })
+})
