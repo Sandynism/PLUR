@@ -1,10 +1,17 @@
 $(function () {
-    $("#startdatepicker").datepicker({ 
+    $("#startDatePicker").datepicker({ 
           autoclose: true, 
           todayHighlight: true
     }).datepicker('update', new Date());
 })
-    $("#enddatepicker").datepicker({ 
+    $("#endDatePicker").datepicker({ 
         autoclose: true, 
         todayHighlight: true
   })
+
+//   $(function () {
+//     $('.listing-block').slimScroll({
+//         height: '500px'
+//     });
+// });
+// what is this for?

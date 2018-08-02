@@ -1,5 +1,9 @@
-.trbc, .card-deck {
+  .trbc, .card-deck {
     background:transparent !important;
+  }
+
+  .card-deck {
+    margin-top: 30px;
   }
   
   p, li, td, th, h1, h2, h3, h4 {
@@ -8,23 +12,25 @@
   
   body {
     /* background: url("../images/bc.jpg"); */
+    /* font-family: ''; */
+    
   }
   
   table {
-      border-collapse: collapse;
-      width: 100%;
-      background: rgb(7, 98, 216);
-      opacity:0.9; 
+    border-collapse: collapse;
+    width: 100%;
+    background: rgb(7, 98, 216);
+    opacity:0.9; 
   }
   
   th, td {
-      text-align: left;
-      padding: 8px;
+    text-align: left;
+    padding: 8px;
   }
   
   .historyBar {
-  max-height:31px;
-  overflow:hidden
+    max-height:31px;
+    overflow:hidden
   }
   
   .modal,.modal-open {
@@ -68,11 +74,45 @@
     margin-left: 20px;
   }
 
-#datepicker {
-  width:150px; 
-  margin: 0 20px 20px 20px;
-}
+  #datepicker {
+    width: 150px; 
+    margin: 0 20px 20px 20px;
+  }
 
-#datepicker > span:hover {
-  cursor: pointer;
-}
+  #datepicker > span:hover {
+    cursor: pointer;
+  }
+
+  .map {
+    width: 400px;
+    float: left;
+  }
+
+  .jumbotron {
+    margin-top: 20px;
+  }
+
+  #animation {
+    font-family: 'Patrick Hand';
+    font-size: 50px;
+    letter-spacing: 3px;
+    text-align: center;
+    background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+    -webkit-animation: masked-animation 4s infinite linear;
+     }
+
+   @-webkit-keyframes masked-animation {
+    0%{ background-position: 0 0;}
+    100% { background-position: -100% 0;}
+   }
+  
+
+  .headerImage img {
+    width: 100%;
+  }
+
+  font-family: 'Amatic SC';
+    letter-spacing: 2px;
