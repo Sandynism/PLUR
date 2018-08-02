@@ -1,10 +1,10 @@
 $(function () {
-    $("#startDatePicker").datepicker({ 
+    $("#start-date").datepicker({ 
           autoclose: true, 
           todayHighlight: true
     }).datepicker('update', new Date());
 })
-    $("#endDatePicker").datepicker({ 
+    $("#end-date").datepicker({ 
         autoclose: true, 
         todayHighlight: true
   })
