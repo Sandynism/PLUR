@@ -64,6 +64,7 @@
 
   #address-input {
     width: 225px;
+    margin-right: 10px;
   }
 
   .algolia-places {
