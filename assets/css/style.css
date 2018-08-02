@@ -6,7 +6,6 @@
     color: rgb(141, 217, 247) !important;
   }
   
-  
   body {
     background: url("../images/bc.jpg");
   }
@@ -15,8 +14,7 @@
       border-collapse: collapse;
       width: 100%;
       background: rgb(7, 98, 216);
-      opacity:0.9;
-      
+      opacity:0.9; 
   }
   
   th, td {
@@ -24,37 +22,43 @@
       padding: 8px;
   }
   
-
-
-  
-  .historyBar{
+  .historyBar {
   max-height:31px;
   overflow:hidden
   }
   
-  .modal,.modal-open{
+  .modal,.modal-open {
     top:100px;
     right:0px;
     left:auto;
     max-height: 100%;
     overflow-y:hidden!important;
   }
-  .modal-dialog{
+
+  .modal-dialog {
     height:100%;
     max-height: 100%;
-  
   }
-  .modal-content{
+
+  .modal-content {
     top:0px;
     bottom:0px;
     height:100%;
     max-height: 100%;
   }
-  .faves{
+
+  .faves {
     overflow:scroll
   }
   
   .active-cyan-3 input[type=text] {
     border: 1px solid #4dd0e1;
     box-shadow: 0 0 0 1px #4dd0e1;
+  }
+
+  #address-input {
+    width: 250px;
+  }
+  .algolia-places {
+    width: 40%;
   }
