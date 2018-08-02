@@ -5,6 +5,14 @@ var placesAutocomplete = places({
     language: 'en'
   });
 
+var placesAutocomplete = places({
+    container: document.querySelector('#start-date')
+  });
+
+  var placesAutocomplete = places({
+    container: document.querySelector('#end-date')
+  });
+
 {/* <input type="search" id="address-input" placeholder="Where are we going?" /> */}
 //need to incorporate to index.html
 //add class or id to the search bar and update code above
