@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -17,35 +17,33 @@
     
     <form class="form-inline bootstrap-iso">
         <input class="form-control" id="address-input" type="search" placeholder="Search Cities">
-        <form method="post">
-            <div class="form-group"> <!-- Date input -->
-                <label class="control-label" for="date">Date</label>
-                <input class="form-control" id="start-date" name="start-date" placeholder="MM/DD/YYYY" type="text"/>
-                <label class="control-label" for="date">Date</label>
-                <input class="form-control" id="end-date" name="end-date" placeholder="MM/DD/YYYY" type="text"/>
+            <div id="startdatepicker" class="input-group date" data-date-format="mm-dd-yyyy">
+                <input class="form-control" type="text" />
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
             </div>
-            <div class="form-group"> <!-- Submit button -->
-                <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+            <div id="enddatepicker" class="input-group date" data-date-format="mm-dd-yyyy">
+                <input class="form-control" type="text" placeholder="End Date"/>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
             </div>
-            </form>
-        <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+            <div class="button"><button class="btn btn-outline-success" name="submit" type="submit">Submit</button></div>
     </form>
+    
     
     
     <img src="assets/images/logo.png" height="50" width="200">
 
     <button class="btn btn-outline-danger" id="favoritesButton">Wishlist</button>
 
-    <form class="form-inline my-2 my-lg-0">
+    <!-- <form class="form-inline my-2 my-lg-0">
         <a class="btn btn-outline-primary" href="#">Sign Up/Log in</a>
         <img src="assets/images/profile.png" height="50" width="50">
-    </form>
+    </form> -->
 </nav>
 
 
-<div class="px-3 py-3 pt-md-4 pb-md-1 mx-auto text-center">
+<!-- <div class="px-3 py-3 pt-md-4 pb-md-1 mx-auto text-center">
     <img src="assets/images/icon.png" height="220" width="400">
-</div>
+</div> -->
 
 <div class="container">
         <div class="card-header">
@@ -180,7 +178,7 @@
         <div class="card-deck mb-6 text-center trbc">
             <div class="card mb-6 shadow-sm">
                 <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Map Comming soon...</h4>
+                    <h4 class="my-0 font-weight-normal">Map Coming soon...</h4>
                     <br>
                     <input type="text" placeholder="Search for places">
                 </div>
@@ -226,12 +224,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.7.3"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
     <script src="assets/javascript/plur.js"></script>
     <script src = "assets/javascript/UITools.js"></script>
     <script src = "assets/javascript/yelp.js"></script>
     <script src ="assets/css/style.css"></script>
     <script src="assets/javascript/places.js"></script>
+    <script src="assets/javascript/datepicker.js"></script>
 
 
 
