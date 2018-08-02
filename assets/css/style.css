@@ -1,4 +1,4 @@
-.trbc, .card, .card-deck {
+.trbc, .card-deck {
     background:transparent !important;
   }
   
@@ -7,7 +7,7 @@
   }
   
   body {
-    background: url("../images/bc.jpg");
+    /* background: url("../images/bc.jpg"); */
   }
   
   table {
@@ -57,8 +57,22 @@
   }
 
   #address-input {
-    width: 250px;
+    width: 225px;
   }
+
   .algolia-places {
-    width: 40%;
+    width: 30%;
   }
+
+  label {
+    margin-left: 20px;
+  }
+
+#datepicker {
+  width:150px; 
+  margin: 0 20px 20px 20px;
+}
+
+#datepicker > span:hover {
+  cursor: pointer;
+}
