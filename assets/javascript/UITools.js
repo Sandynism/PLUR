@@ -81,8 +81,8 @@ function createCard(event) {
   topRow.append(nameCol)
 
   var dateCol = $("<div>").addClass("col-4 text-right")
-  var convertedDate = moment(event.date, "MM/DD/YYYY");
-  dateCol.text(convertedDate)
+  var convertedDate = moment(event.date, "YYYY-MM-DD");
+  dateCol.text(moment(convertedDate).format("MM/DD/YY"))
   topRow.append(dateCol)
   card.append(topRow)
 
