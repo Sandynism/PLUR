@@ -85,6 +85,18 @@ $(function(){
         event.preventDefault()
         var state = $("input[type = search]").val()
         locationParameters.state = state
+   
+        var startD = (moment(moment($(".start-date").val(), "MM-DD-YYYY")).format("YYYY-MM-DD"))
+        if (startD == 'Invalid date'){
+            startD =""
+        }
+        
+        var endD = (moment(moment($(".end-date").val(), "MM-DD-YYYY")).format("YYYY-MM-DD"))
+        if (endD == 'Invalid date'){
+            endD =""
+        }
+        eventParameters.startDate = startD
+        eventParameters.endDate = endD
         getStateId()
     })
 })
