@@ -9,26 +9,27 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Acme%7CAmatic+SC%7CFredoka+One%7CPatrick+Hand%7CPermanent+Marker%7CPoiret+One" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
+<body>
+    
 <nav class="trbc navbar navbar-light bg-light justify-content-between">
     
     <form class="form-inline bootstrap-iso">
         <input class="form-control" id="address-input" type="search" placeholder="Search Cities">
-            <div id="startdatepicker" class="input-group date" data-date-format="mm-dd-yyyy">
-                <input class="form-control" type="text" />
+            <div id="startDatePicker" class="input-group date" data-date-format="mm-dd-yyyy">
+                <input class="form-control start-date" type="text" />
                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
             </div>
-            <div id="enddatepicker" class="input-group date" data-date-format="mm-dd-yyyy">
-                <input class="form-control" type="text" placeholder="End Date"/>
+            <div id="endDatePicker" class="input-group date" data-date-format="mm-dd-yyyy">
+                <input class="form-control end-date" type="text" placeholder="End Date"/>
                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
             </div>
             <div class="button"><button class="btn btn-outline-success" name="submit" type="submit">Submit</button></div>
     </form>
-    
-    
     
     <img src="assets/images/logo.png" height="50" width="200">
 
@@ -44,68 +45,13 @@
 <!-- <div class="px-3 py-3 pt-md-4 pb-md-1 mx-auto text-center">
     <img src="assets/images/icon.png" height="220" width="400">
 </div> -->
-
 <div class="container">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Nearby Events</h4>
-        </div>
-        <div class="card-body">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Event Name/Link</th>
-                            <th>Date</th>
-                            <th>Location</th>
-                            <th>Restaurant Nearby(Yelp)</th>
-                            <!-- <th>Add to Favorite</th> -->
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr>
-                            <td>Coming Soon</td>
-                            <td>Coming Soon</td>
-                            <td>Coming Soon</td>
-                            <td>Coming Soon</td>
-                            <td>Coming Soon</td>
-                            <td>
-                                <img src="assets/images/like-empty.png" class="float-right mr-2 heart" style="width: 20px; height: 20px;">
-                            </td>
-                        </tr>
-                        </tbody>
-
-                        <tbody>
-                        <tr>
-                            <td>Coming Soon</td>
-                            <td>Coming Soon</td>
-                            <td>Coming Soon</td>
-                            <td>Coming Soon</td>
-                            <td>Coming Soon</td>
-                            <td>
-                                <img src="assets/images/like-empty.png" class="float-right mr-2 heart" style="width: 20px; height: 20px;">
-                            </td>
-                        </tr>
-                        </tbody>
-
-                        <tbody>
-                        <tr>
-                            <td>Coming Soon</td>
-                            <td>Coming Soon</td>
-                            <td>Coming Soon</td>
-                            <td>Coming Soon</td>
-                            <td>Coming Soon</td>
-                            <td>
-                                <img src="assets/images/like-empty.png" class="float-right mr-2 heart" style="width: 20px; height: 20px;">
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-        </div>
+        <div class="text-center" id="animation"></div>
+    <div class="jumbotron headerImage">
+        <img src="assets/images/gif3.gif" alt="headerImage"/>
+    </div>
+    
 </div>
-
-    <br><br>
 
 <div class="container">
     <div class="card-deck mb-3 text-center">
@@ -114,12 +60,11 @@
                 <h4 class="my-0 font-weight-normal">City 1</h4>
             </div>
             <div class="card-body">
-                <h1 class="card-title">Music Genre 1</h1>
+                <h1 class="card-title">Festival 1</h1>
                 <ul class="list-unstyled mt-3 mb-4">
                     <li>text</li>
                     <li>text</li>
                     <li>text</li>
-                    <li>image</li>
                 </ul>
                 <button type="button" class="btn btn-lg btn-block btn-outline-primary">Link</button>
 
@@ -130,12 +75,11 @@
                 <h4 class="my-0 font-weight-normal">City 2</h4>
             </div>
             <div class="card-body">
-                <h1 class="card-title">Music Genre 2</h1>
+                <h1 class="card-title">Festival 2</h1>
                 <ul class="list-unstyled mt-3 mb-4">
                     <li>text</li>
                     <li>text</li>
                     <li>text</li>
-                    <li>image</li>
                 </ul>
                 <button type="button" class="btn btn-lg btn-block btn-outline-primary">Link</button>
             </div>
@@ -145,12 +89,11 @@
                 <h4 class="my-0 font-weight-normal">City 3</h4>
             </div>
             <div class="card-body">
-                <h1 class="card-title">Music Genre 3</h1>
+                <h1 class="card-title">Festival 3</h1>
                 <ul class="list-unstyled mt-3 mb-4">
                     <li>text</li>
                     <li>text</li>
                     <li>text</li>
-                    <li>image</li>
                 </ul>
                 <button type="button" class="btn btn-lg btn-block btn-outline-primary">Link</button>
             </div>
@@ -160,33 +103,33 @@
                 <h4 class="my-0 font-weight-normal">City 4</h4>
             </div>
             <div class="card-body">
-                <h1 class="card-title">Music Genre 4</h1>
+                <h1 class="card-title">Festival 4</h1>
                 <ul class="list-unstyled mt-3 mb-4">
                     <li>text</li>
                     <li>text</li>
                     <li>text</li>
-                    <li>image</li>
                 </ul>
                 <button type="button" class="btn btn-lg btn-block btn-outline-primary">Link</button>
             </div>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container map">
         <div class="card-deck mb-6 text-center trbc">
             <div class="card mb-6 shadow-sm">
                 <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Map Coming soon...</h4>
+                    <h4 class="my-0 font-weight-normal">Map Coming Soon...</h4>
                     <br>
-                    <input type="text" placeholder="Search for places">
                 </div>
                 <div class="card-body">
                     <iframe width="100%" height="495" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&source=s_q&hl=en&geocode=&815&sspn=8.047465,13.666992&ie=UTF8&hq=&hnear=15+Springfield+Way,+Hythe+CT21+5SH,+United+Kingdom&t=m&z=14&ll=51.077429,1.121722&output=embed"></iframe>
                 </div>
             </div>
-
         </div>
     </div>
+
+    <div class="cardDisplay"></div>
+    <div class="lightbox"></div>
 
     <div class="modal favoriteModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -204,24 +147,9 @@
         </div>
     </div>
 
-    <div class="cardDisplay"></div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
-    <script>
-       
-    
-
-        $(function () {
-            $('.listing-block').slimScroll({
-                height: '500px'
-            });
-        });
-    </script>
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.7.3"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
     <script src="assets/javascript/plur.js"></script>
     <script src = "assets/javascript/UITools.js"></script>
@@ -229,11 +157,7 @@
     <script src ="assets/css/style.css"></script>
     <script src="assets/javascript/places.js"></script>
     <script src="assets/javascript/datepicker.js"></script>
-
-
-
-
-
+    <script src="assets/javascript/messenger.js"></script>
 
     </body>
 
