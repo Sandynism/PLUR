@@ -2,7 +2,9 @@ var events = {}
 
 var eventParameters = {
     client: "d5cf6acf-f0c3-408b-9a6c-31d016f980aa",
-    locationIds: "38"
+    locationIds: "38",
+    startDate: "",
+    endDate: ""      
 }
 
 function getEvents() {
@@ -20,7 +22,7 @@ function getEvents() {
         console.log(events)
         $("tbody").empty()
         for (var i in events){
-            createRow(events[i])
+            createCard(events[i])
         }
     }).fail(function () {
         var response = eventsData
@@ -86,3 +88,5 @@ $(function(){
         getStateId()
     })
 })
+
+
