@@ -68,7 +68,7 @@ function createEventName(event){
   return eventName
 }
 function createCard(event) {
-  var card = $("<div>").addClass("card eventCard bg-light p-3 w-75 my-3 shadow-sm")
+  var card = $("<div>").addClass("card eventCard bg-light p-3 w-100 my-3 ml-3 shadow-sm")
   card.attr('data', JSON.stringify(event))
 
   var topRow = $("<div>").addClass("row")
