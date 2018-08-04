@@ -68,8 +68,9 @@ function createEventName(event){
   return eventName
 }
 function createCard(event) {
-  var card = $("<div>").addClass("card eventCard bg-light p-3 w-100 my-3 ml-3 shadow-sm")
+  var card = $("<div>").addClass("card eventCard bg-light p-3 w-100 my-3 ml-3 mt-3 shadow-sm")
   card.attr('data', JSON.stringify(event))
+  card.attr('data-aos','flip-left')
 
   var topRow = $("<div>").addClass("row")
 
@@ -80,14 +81,14 @@ function createCard(event) {
   nameCol.append(nameElem)
   topRow.append(nameCol)
 
-  var dateCol = $("<div>").addClass("col-4 text-right")
+  var dateCol = $("<div>").addClass("col-4 dateCol text-right")
   var convertedDate = moment(event.date, "YYYY-MM-DD");
   dateCol.text(moment(convertedDate).format("MM/DD/YY"))
   topRow.append(dateCol)
   card.append(topRow)
 
   var bottomRow = $("<div>").addClass('row')
-  var locationCol = $("<div>").addClass("col")
+  var locationCol = $("<div>").addClass("col addressCol")
   locationCol.text(event.venue.address)
   bottomRow.append(locationCol)
 
