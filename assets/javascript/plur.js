@@ -1,6 +1,7 @@
 var events = []
 var pages = []
 var activePage = 1
+var createdPagesAlready = false
 var featured = ["coachella", "electric zoo", "ultra", "electric daisy", "creamfields", "electric forest", "holy ship", "escape", "countdown", "burning man", "lollapalooza", "moonrise festival", "crssd", "tomorrowland"]
 
 var eventParameters = {
@@ -30,6 +31,8 @@ function getEvents() {
         $("tbody").empty()
 
         displayPage()
+        //prevents pages from repeating
+        if (createdPagesAlready) return
         if (pages.length > 10) {
             createPageButtons("<")
         }
@@ -41,6 +44,7 @@ function getEvents() {
             }
 
         }
+        createdPagesAlready= true
     }).fail(function () {
         var response = eventsData
         var dataList = response.data
@@ -147,9 +151,32 @@ function createCard(event) {
     var nameCol = $("<div>").addClass("col-8")
     var nameElem = $("<h5>").addClass("card-title")
     var eventName = createEventName(event)
+
+    // var heartFull = $("<img>").attr('src', 'assets/images/like-full.png')
+    // var heartEmpty = $("<img>").attr('src', 'assets/images/like-empty.png')
+    //  heartFull.css({
+    //   'width': '20px',
+    //   'height': '20px'
+    // })
+    //  heartEmpty.css({
+    //   'width': '20px',
+    //   'height': '20px'
+    // })
+
     nameElem.text(eventName)
     nameCol.append(nameElem)
     topRow.append(nameCol)
+
+//     topRow.append(heartEmpty)
+//    $(function() {
+//     heartEmpty.click(function(){
+//       if (heartEmpty=$("<img>").attr('src', 'assets/images/like-empty.png')){
+//       heartEmpty.attr('src',"assets/images/like-full.png");
+//       return false;
+//     }
+//     changeLikedButton('empty', id)
+//     });
+//   });
 
     var dateCol = $("<div>").addClass("col-4 text-right")
     var convertedDate = moment(event.date, "YYYY-MM-DD");
@@ -191,17 +218,21 @@ function lightbox(event) {
     let ticketURL = ("<a href=" + event.ticketLink + " target='_blank' +>Ticket Purchase</a>")
     $(".lightbox-ticketURL").html(ticketURL)
     let ticketInfo = ("<a href=" + event.link + " target='_blank' +>Event Information</a>")
-    $(".lightbox-infoURL").text(ticketInfo)
+    $(".lightbox-infoURL").html(ticketInfo)
 }
 
 $(function () {
-    console.log('running')
+
     $(".cardDisplay").on("click", ".eventCard", function () {
+
         var event = JSON.parse($(this).attr('data'))
         lightbox(event)
     })
 })
 
+$('.close-btn').on('click', function () {
+    $('.lightbox').hide()
+})
 
 function createPageButtons(pageNum) {
     var col = $("<div>").addClass("col mx-0 px-0 ")
@@ -228,7 +259,6 @@ function featuredEvents() {
         method: "GET",
     }).done(function (response) {
         var dataList = response.data
-        console.log(dataList)
         var counter =0;
         var addedFeatureds =[]
         for (var i in dataList){
@@ -238,7 +268,6 @@ function featuredEvents() {
                 if (event.name ==null){continue}
                 if (addedFeatureds.indexOf(event.name)>-1){continue}
                 if(event.name.toLowerCase().search(fName)>-1){
-                    console.log('adding to featured: '+event.name)
                     addedFeatureds.push(event.name)
                     counter++
                     var target = $(".featured"+counter)
