@@ -3,7 +3,7 @@
   }
 
   .button .btn-secondary {
-    background-color: orange!important;
+    background-color: #a6c!important;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
     font-family: 'Permanent Marker';
     font-size: 18px;
@@ -19,7 +19,8 @@
   }
   
   .card-header {
-    background-color: rgb(31, 31, 129);
+    /* background-color: rgb(31, 31, 129); */
+    background-color: #a6c!important;
   }
 
   .card-header h4 {
@@ -35,11 +36,16 @@
 
   .card-title {
     font-family: 'Raleway';
+    font-size: 28px;
   }
 
   .card-body ul {
     font-family: 'Raleway';
     font-size: 20px;
+  }
+
+  .card-body btn {
+    bottom: 5px;
   }
 
   .dropdown-toggle {
@@ -204,22 +210,23 @@
   
 
  /* TODO: add mobile responsive at 808px-- for the animation to disappear */
-.letters{
+.letters {
   font-family: 'Lakki Reddy';
 }
+
  .ml6 {
-  
-   color:orange;
+  color:orange;
   position: relative;
   font-weight: 900;
-  font-size: 3.8em;
+  /* font-size: 3.8em; */
+  font-size: 2.5em;
 }
 
 .ml6 .text-wrapper {
   position: relative;
   display: inline-block;
   padding-top: 0.5em;
-  padding-right: 4em;
+  /* padding-right: 4em; */
   padding-bottom: 0em;
   overflow: hidden;
 }
@@ -231,11 +238,11 @@
 
 
 .spinner {
-  margin: 10px auto;
-  width: 50px;
+  /* margin: 5px auto; */
+  /* width: 50px; */
   height: 40px;
   text-align: center;
-  font-size: 10px;  
+  /* font-size: 10px;   */
 }
 
 .spinner > div {
