@@ -2,9 +2,9 @@ let url
 
 
   function restaurants(address) {
-    // var zipcode = $(':submit')
-    // var zipcode = $("input[type = search]").val()
-     //grab user input
+    //grab zipcode from event.venue.address
+    // let event = document.querySelector(`${'event.venue.address'}`);
+    // console.log(event)
     let zipcode = address.match(/\b\d{5}\b/g)
     if (!zipcode) return
     zipcode = zipcode[zipcode.length-1]
@@ -29,7 +29,7 @@ let url
       
     } 
 
-  // restaurants()
+  
 
 // var events = {}
 
