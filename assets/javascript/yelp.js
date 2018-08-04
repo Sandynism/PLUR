@@ -1,10 +1,13 @@
 let url
 
-  function restaurants() {
-    var zipcode = $(':submit')
+
+  function restaurants(address) {
+    // var zipcode = $(':submit')
     // var zipcode = $("input[type = search]").val()
      //grab user input
-    
+    let zipcode = address.match(/\b\d{5}\b/g)
+    if (!zipcode) return
+    zipcode = zipcode[zipcode.length-1]
     let queryURL = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=restaurants&location=' + zipcode
     const API_KEY = 'hiW4XNb5cHEefcQY0jBx9ryKezdFrJDbjEa_QlkjotoTdY_Vdwjm5EHLk14U6WLItQfNHBifAcGCEqwImzw7Wl0SBIaL-d5JfBI-2Dl_4IyCNkTBn40fKxjgTiZZW3Yx'    
 
@@ -15,10 +18,8 @@ let url
           'Authorization': `Bearer ${API_KEY}`
         },
         success: function(data) {
-            console.log(data)
-            // console.log(data.businesses[0].url)
             url = data.businesses[0].url
-            console.log(url)
+            return url
         },
         error: function(data) {
             console.log('Error')
@@ -28,7 +29,7 @@ let url
       
     } 
 
-  restaurants()
+  // restaurants()
 
 // var events = {}
 
