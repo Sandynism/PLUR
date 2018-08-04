@@ -1,6 +1,7 @@
 var events = []
 var pages = []
 var activePage = 1
+var createdPagesAlready = false
 var featured = ["coachella", "electric zoo", "ultra", "electric daisy", "creamfields", "electric forest", "holy ship", "escape", "countdown", "burning man", "lollapalooza", "moonrise festival", "crssd", "tomorrowland"]
 
 var eventParameters = {
@@ -11,8 +12,6 @@ var eventParameters = {
 }
 
 function getEvents() {
-    console.log('hit')
-
     pages = []
     events = []
     $(".cardDisplay").empty()
@@ -32,6 +31,8 @@ function getEvents() {
         $("tbody").empty()
 
         displayPage()
+        //prevents pages from repeating
+        if (createdPagesAlready) return
         if (pages.length > 10) {
             createPageButtons("<")
         }
@@ -43,6 +44,7 @@ function getEvents() {
             }
 
         }
+        createdPagesAlready= true
     }).fail(function () {
         var response = eventsData
         var dataList = response.data
@@ -233,7 +235,6 @@ $('.close-btn').on('click', function () {
 })
 
 function createPageButtons(pageNum) {
-
     var col = $("<div>").addClass("col mx-0 px-0 ")
     var butt = $("<button>").addClass("d-inline pageButton")
     butt.text(pageNum)
@@ -258,7 +259,6 @@ function featuredEvents() {
         method: "GET",
     }).done(function (response) {
         var dataList = response.data
-        console.log(dataList)
         var counter =0;
         var addedFeatureds =[]
         for (var i in dataList){
@@ -268,7 +268,6 @@ function featuredEvents() {
                 if (event.name ==null){continue}
                 if (addedFeatureds.indexOf(event.name)>-1){continue}
                 if(event.name.toLowerCase().search(fName)>-1){
-                    console.log('adding to featured: '+event.name)
                     addedFeatureds.push(event.name)
                     counter++
                     var target = $(".featured"+counter)
