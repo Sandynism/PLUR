@@ -170,6 +170,14 @@
   
 
   
-
+.lightbox{
+  display: none;
+  width:40%;
+  height:100%;
+  background: red;
+  position:fixed;
+  right:0;
+  top:0;
+}
   
  /* TODO: add mobile responsive at 808px-- for the animation to disappear */

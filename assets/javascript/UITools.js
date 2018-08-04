@@ -1,8 +1,8 @@
-Holder.addTheme('thumb', {
-  bg: '#55595c',
-  fg: '#eceeef',
-  text: 'Thumbnail'
-});
+// Holder.addTheme('thumb', {
+//   bg: '#55595c',
+//   fg: '#eceeef',
+//   text: 'Thumbnail'
+// });
 
 function myMap() {
   var mapCanvas = document.getElementById("map");
@@ -116,7 +116,9 @@ function lightbox(event) {
 }
 
 $(function () {
-  $(".cardDisplay").on("click", "eventCard", function () {
+  console.log('running')
+  $(".cardDisplay").on("click", ".eventCard", function () {
+    console.log('clicked')
     var event = JSON.stringify($(this).attr('data'))
     lightbox(event)
   })
