@@ -28,6 +28,7 @@ function getEvents() {
         }
         console.log(pages)
         $("tbody").empty()
+
         displayPage()
         if (pages.length > 10) {
             createPageButtons("<")
@@ -38,6 +39,7 @@ function getEvents() {
                 createPageButtons(">")
                 break
             }
+
         }
     }).fail(function () {
         var response = eventsData
@@ -75,6 +77,10 @@ function getStateId() {
 $(function () {
     $(":submit").click(function () {
         event.preventDefault()
+        $('.carouselHeader').addClass('hide')
+        $('.festivalCard').addClass('hide')
+        $('.mapEvents').removeClass('hide')
+
         var state = $("input[type = search]").val()
         locationParameters.state = state
 
@@ -119,6 +125,84 @@ $(function () {
 })
 
 
+function createEventName(event){
+    var eventName = event.name
+    if (eventName == null) {
+      eventName = "Artists: "
+      for (var i in event.artistList) {
+        if (i == 0) {
+          eventName += event.artistList[i].name
+          continue
+        }
+        eventName += ", " + event.artistList[i].name
+      }
+    }
+    return eventName
+  }
+  function createCard(event) {
+    var card = $("<div>").addClass("card eventCard bg-light p-3 w-100 my-3 ml-3 shadow-sm")
+    card.attr('data', JSON.stringify(event))
+  
+    var topRow = $("<div>").addClass("row")
+  
+    var nameCol = $("<div>").addClass("col-8")
+    var nameElem = $("<h5>").addClass("card-title")
+    var eventName = createEventName(event)
+    nameElem.text(eventName)
+    nameCol.append(nameElem)
+    topRow.append(nameCol)
+  
+    var dateCol = $("<div>").addClass("col-4 text-right")
+    var convertedDate = moment(event.date, "YYYY-MM-DD");
+    dateCol.text(moment(convertedDate).format("MM/DD/YY"))
+    topRow.append(dateCol)
+    card.append(topRow)
+  
+    var bottomRow = $("<div>").addClass('row')
+    var locationCol = $("<div>").addClass("col")
+    locationCol.text(event.venue.address)
+    bottomRow.append(locationCol)
+  
+    // YELP STUFF
+    // let yelpRestaurant = $("<div>").addClass("col")
+    // restaurants(event.venue.address)
+
+  
+    if (event.festivalInd == true) {
+      locationCol.addClass('col-10')
+      var badgeCol = $("<div>").addClass('col-2 text-right')
+      var badgeText = $("<p>").addClass("badge-warning text-black text-center")
+      badgeText.text('Electronic Festival')
+      badgeCol.append(badgeText)
+      bottomRow.append(badgeCol)
+    }
+  
+    card.append(bottomRow)
+    $(".cardDisplay").append(card)
+  }
+  
+  function lightbox(event) {
+    $(".lightbox").show()
+    var eventName = createEventName(event)
+    $(".lightbox-title").text(eventName)
+    $(".lightbox-date").text(event.date)
+    $(".lightbox-address").text(event.venue.address)
+    $(".lightbox-venue").text(event.venue.name)
+    let ticketURL = ("<a href="+event.ticketLink+" target='_blank' +>Ticket Purchase</a>")
+    $(".lightbox-ticketURL").html(ticketURL)
+    let ticketInfo = ("<a href="+event.link+" target='_blank' +>Event Information</a>")
+    $(".lightbox-infoURL").text(ticketInfo)
+  }
+  
+  $(function () {
+    console.log('running')
+    $(".cardDisplay").on("click", ".eventCard", function () {
+      var event = JSON.parse($(this).attr('data'))
+      lightbox(event)
+    })
+  })
+
+
 function createPageButtons(pageNum) {
     var col = $("<div>").addClass("col mx-0 px-0 ")
     var butt = $("<button>").addClass("d-inline pageButton")
@@ -133,3 +217,4 @@ function displayPage() {
         createCard(pages[activePage][i])
     }
 }
+
