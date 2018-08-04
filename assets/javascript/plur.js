@@ -1,6 +1,7 @@
 var events = []
 var pages = []
 var activePage = 1
+var featured = ["coachella", "electric zoo", "ultra", "electric daisy", "creamfields", "electric forest", "holy ship", "escape", "countdown", "burning man", "lollapalooza", "moonrise festival", "crssd", "tomorrowland"]
 
 var eventParameters = {
     client: "d5cf6acf-f0c3-408b-9a6c-31d016f980aa",
@@ -75,6 +76,7 @@ function getStateId() {
 }
 
 $(function () {
+    featuredEvents()
     $(":submit").click(function () {
         event.preventDefault()
         $('.carouselHeader').addClass('hide')
@@ -115,9 +117,9 @@ $(function () {
             var first = $(".buttonBar").children().first().next().text()
             if (first != "1") {
                 for (var i = 0; i < 10; i++) {
-                    var current = $($(".buttonBar").children()[i+1]).text()
+                    var current = $($(".buttonBar").children()[i + 1]).text()
                     if (current == ">" || current == "<") { continue }
-                    $(".buttonBar").children()[i+1].firstChild.innerText = Number(current) - Number(1)
+                    $(".buttonBar").children()[i + 1].firstChild.innerText = Number(current) - Number(1)
                 }
             }
         }
@@ -125,82 +127,82 @@ $(function () {
 })
 
 
-function createEventName(event){
+function createEventName(event) {
     var eventName = event.name
     if (eventName == null) {
-      eventName = "Artists: "
-      for (var i in event.artistList) {
-        if (i == 0) {
-          eventName += event.artistList[i].name
-          continue
+        eventName = ""
+        for (var i in event.artistList) {
+            if (i == 0) {
+                eventName += event.artistList[i].name
+                continue
+            }
+            eventName += ", " + event.artistList[i].name
         }
-        eventName += ", " + event.artistList[i].name
-      }
     }
     return eventName
-  }
-  function createCard(event) {
+}
+function createCard(event) {
     var card = $("<div>").addClass("card eventCard bg-light p-3 w-100 my-3 ml-3 shadow-sm")
     card.attr('data', JSON.stringify(event))
-  
+
     var topRow = $("<div>").addClass("row")
-  
+
     var nameCol = $("<div>").addClass("col-8")
     var nameElem = $("<h5>").addClass("card-title")
     var eventName = createEventName(event)
     nameElem.text(eventName)
     nameCol.append(nameElem)
     topRow.append(nameCol)
-  
+
     var dateCol = $("<div>").addClass("col-4 text-right")
     var convertedDate = moment(event.date, "YYYY-MM-DD");
     dateCol.text(moment(convertedDate).format("MM/DD/YY"))
     topRow.append(dateCol)
     card.append(topRow)
-  
+
     var bottomRow = $("<div>").addClass('row')
     var locationCol = $("<div>").addClass("col")
     locationCol.text(event.venue.address)
     bottomRow.append(locationCol)
-  
+
     // YELP STUFF
     // let yelpRestaurant = $("<div>").addClass("col")
     // restaurants(event.venue.address)
 
-  
+
     if (event.festivalInd == true) {
-      locationCol.addClass('col-10')
-      var badgeCol = $("<div>").addClass('col-2 text-right')
-      var badgeText = $("<p>").addClass("badge-warning text-black text-center")
-      badgeText.text('Electronic Festival')
-      badgeCol.append(badgeText)
-      bottomRow.append(badgeCol)
+        locationCol.addClass('col-10')
+        var badgeCol = $("<div>").addClass('col-2 text-right')
+        var badgeText = $("<p>").addClass("badge-warning text-black text-center")
+        badgeText.text('Electronic Festival')
+        badgeCol.append(badgeText)
+        bottomRow.append(badgeCol)
     }
-  
+
     card.append(bottomRow)
     $(".cardDisplay").append(card)
-  }
-  
-  function lightbox(event) {
+}
+
+function lightbox(event) {
     $(".lightbox").show()
     var eventName = createEventName(event)
     $(".lightbox-title").text(eventName)
     $(".lightbox-date").text(event.date)
     $(".lightbox-address").text(event.venue.address)
     $(".lightbox-venue").text(event.venue.name)
-    let ticketURL = ("<a href="+event.ticketLink+" target='_blank' +>Ticket Purchase</a>")
+    let ticketURL = ("<a href=" + event.ticketLink + " target='_blank' +>Ticket Purchase</a>")
     $(".lightbox-ticketURL").html(ticketURL)
-    let ticketInfo = ("<a href="+event.link+" target='_blank' +>Event Information</a>")
+    let ticketInfo = ("<a href=" + event.link + " target='_blank' +>Event Information</a>")
     $(".lightbox-infoURL").text(ticketInfo)
-  }
-  
-  $(function () {
+}
+
+$(function () {
     console.log('running')
     $(".cardDisplay").on("click", ".eventCard", function () {
-      var event = JSON.parse($(this).attr('data'))
-      lightbox(event)
+        var event = JSON.parse($(this).attr('data'))
+        lightbox(event)
     })
-  })
+})
 
 
 function createPageButtons(pageNum) {
@@ -218,3 +220,46 @@ function displayPage() {
     }
 }
 
+function featuredEvents() {
+    var parameters = {
+        client: "d5cf6acf-f0c3-408b-9a6c-31d016f980aa",
+    }
+    var query = $.param(parameters);
+    $.ajax({
+        url: "https://edmtrain.com/api/events?" + query,
+        method: "GET",
+    }).done(function (response) {
+        var dataList = response.data
+        console.log(dataList)
+        var counter =0;
+        var addedFeatureds =[]
+        for (var i in dataList){
+            var event = dataList[i]
+            for (var n in featured){
+                var fName = featured[n]
+                if (event.name ==null){continue}
+                if (addedFeatureds.indexOf(event.name)>-1){continue}
+                if(event.name.toLowerCase().search(fName)>-1){
+                    console.log('adding to featured: '+event.name)
+                    addedFeatureds.push(event.name)
+                    counter++
+                    var target = $(".featured"+counter)
+                    var stateElem = target.children().first().children()
+                    stateElem.text(event.venue.state)
+                    var titleElem = target.children().last().children().first()
+                    titleElem.text(event.name)
+                    var linkElem = target.children().last().children().last()
+                    linkElem.attr('href',event.ticketLink)
+                    var dateElem = target.children().first().next().children().first().next().children().first()
+                    var convertedDate = moment(event.date, "YYYY-MM-DD");
+                    dateElem.text(moment(convertedDate).format("MM/DD/YY"))
+                    var venueElem = target.children().first().next().children().first().next().children().first().next()
+                    venueElem.text(event.venue.name)
+                    var addressElem = target.children().first().next().children().first().next().children().first().next().next()
+                    addressElem.text(event.venue.address)
+                    if (counter ==4){return}
+                }
+            }
+        }
+    })
+}
