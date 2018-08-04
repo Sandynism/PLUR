@@ -5,9 +5,9 @@
   .button .btn-secondary {
     background-color: orange!important;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-    font-family: 'Amatic SC';
-    font-size: 20px;
-    letter-spacing: 3px;
+    font-family: 'Permanent Marker';
+    font-size: 18px;
+    letter-spacing: 2px;
   }  
 
   .trbc, .card-deck {
@@ -41,14 +41,11 @@
     font-family: 'Raleway';
     font-size: 20px;
   }
-  /* p, li, td, th, h1, h2, h3, h4 {
-    color: rgb(141, 217, 247) 
-  } */
 
   .dropdown-toggle {
-    font-size: 20px;
-    letter-spacing: 3px;
-    font-family: 'Amatic SC';
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-family: 'Permanent Marker';
   }
   
   .carousel {
@@ -109,19 +106,15 @@
   #address-input {
     width: 175px;
     margin-right: 10px;
-    font-family: 'Amatic SC';
-    font-size: 20px;
-    letter-spacing: 3px;
+    font-family: 'Permanent Marker';
+    font-size: 18px;
+    letter-spacing: 2px;
   }
 
   .start-date, .end-date {
-    font-family: 'Amatic SC';
-    letter-spacing: 3px;
-    font-size: 20px;
+    font-family: 'Permanent Marker';
+    font-size: 18px;
   } 
-  /* .algolia-places {
-    width: 30%;
-  } */
 
   label {
     margin-left: 20px;
@@ -140,15 +133,6 @@
     width: 400px;
     float: left;
   }
-
-  /* .jumbotron {
-    margin-top: 20px;
-    position: relative;
-  }
-
-  .headerImage img {
-    width: 100%;
-  } */
 
   .animate {
     position: absolute;
@@ -171,19 +155,52 @@
     0%{ background-position: 0 0;}
     100% { background-position: -100% 0;}
    }
-  
 
   
 .lightbox{
   display: none;
   width:40%;
-  height:100%;
-  background: red;
+  height:95%;
+  background: rgb(240, 180, 69);
   position:fixed;
-  right:0;
-  top:0;
+  right:20px;
+  top:20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: -15px 15px 10px 0 rgba(20, 15, 15, 0.322);
+}
+
+.close-btn {
+  background: rgb(240, 180, 69);
+  font-size: 40px;
+  outline: 0;
+  position: absolute;
+  bottom: 10px;
+  border: none;
+  left: 47%
+}
+
+.close-btn:hover {
+  text-shadow: 1px 1px 4px rgba(20, 15, 15, 0.322);
+}
+
+.close-btn:active {
+  text-shadow: none;
+}
+
+
+.lightbox-title {
+  font-family: 'Patrick Hand';
+  font-size: 50px;
+  letter-spacing: 2px;
+}
+
+.lightbox-date, .lightbox-address, .lightbox-venue, .lightbox-ticketURL, .lightbox-infoURL {
+  font-family: 'Nanum Gothic';
+  font-size: 20px;
 }
   
+
  /* TODO: add mobile responsive at 808px-- for the animation to disappear */
 .letters{
   font-family: 'Lakki Reddy';
@@ -264,3 +281,7 @@
     -webkit-transform: scaleY(1.0);        
   }
 }
+
+
+ /* TODO: add mobile responsive at 808px-- for the animation to disappear */
+

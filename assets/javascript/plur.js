@@ -27,7 +27,6 @@ function getEvents() {
                 events = []
             }
         }
-        console.log(pages)
         $("tbody").empty()
 
         displayPage()
@@ -67,7 +66,6 @@ function getStateId() {
             var location = response.data[i]
             locations += location.id + ","
         }
-        console.log(locations)
         eventParameters.locationIds = locations
         getEvents()
     }).fail(function () {
@@ -109,7 +107,6 @@ $(function () {
                 var current = $($(".buttonBar").children()[i + 1]).text()
                 var last = $(".buttonBar").children().last().prev().text()
                 if (last == pages.length) { return }
-                console.log(current)
                 if (current == ">" || current == "<") { continue }
                 $(".buttonBar").children()[i + 1].firstChild.innerText = Number(1) + Number(current)
             }
@@ -187,7 +184,8 @@ function lightbox(event) {
     $(".lightbox").show()
     var eventName = createEventName(event)
     $(".lightbox-title").text(eventName)
-    $(".lightbox-date").text(event.date)
+    var convertedDate = moment(event.date, "YYYY-MM-DD");
+    $(".lightbox-date").text(moment(convertedDate).format("MM/DD/YY"))
     $(".lightbox-address").text(event.venue.address)
     $(".lightbox-venue").text(event.venue.name)
     let ticketURL = ("<a href=" + event.ticketLink + " target='_blank' +>Ticket Purchase</a>")
