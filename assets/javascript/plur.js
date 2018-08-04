@@ -1,16 +1,19 @@
 var events = []
+var pages = []
+var activePage = 1
 
 var eventParameters = {
     client: "d5cf6acf-f0c3-408b-9a6c-31d016f980aa",
     locationIds: "38",
     startDate: "",
-    endDate: ""      
+    endDate: ""
 }
 
 function getEvents() {
+    pages = []
     events = []
+    $(".cardDisplay").empty()
     var query = $.param(eventParameters);
-    console.log(query)
     $.ajax({
         url: "https://edmtrain.com/api/events?" + query,
         method: "GET",
@@ -18,11 +21,23 @@ function getEvents() {
         var dataList = response.data
         for (var i in dataList) {
             events[i] = dataList[i]
+            if (i % 6 == 0) {
+                pages.push(events)
+                events = []
+            }
         }
-        console.log(events)
+        console.log(pages)
         $("tbody").empty()
-        for (var i in events){
-            createCard(events[i])
+        displayPage()
+        if (pages.length > 10) {
+            createPageButtons("<")
+        }
+        for (var i in pages) {
+            createPageButtons(Number(i) + Number(1))
+            if (i > 8) {
+                createPageButtons(">")
+                break
+            }
         }
     }).fail(function () {
         var response = eventsData
@@ -45,9 +60,9 @@ function getStateId() {
         method: "GET"
     }).done(function (response) {
         var locations = ""
-        for (var i in response.data){
+        for (var i in response.data) {
             var location = response.data[i]
-            locations+=location.id+","
+            locations += location.id + ","
         }
         console.log(locations)
         eventParameters.locationIds = locations
@@ -57,47 +72,64 @@ function getStateId() {
     })
 }
 
-function createRow(event){
-    var row = $("<tr href = '"+event.link+"'>")
-    var eventName = event.name
-    if (eventName == null){
-        eventName = "Artists: "
-        for (var i in event.artistList){
-            if (i==0){
-                eventName += event.artistList[i].name
-                continue
-            }
-            eventName += ", "+event.artistList[i].name
-        }
-    }
-    var name = $("<td>").text(eventName)
-    row.append(name)
-    var date = $("<td>").text(event.date)
-    row.append(date)
-    var address = $("<td>").text(event.venue.address)
-    row.append(address)
-    // var yelpLink = getYelpLink(address)
-    $("tbody").append(row)
-}
-
-$(function(){
-    $(":submit").click(function(){
+$(function () {
+    $(":submit").click(function () {
         event.preventDefault()
         var state = $("input[type = search]").val()
         locationParameters.state = state
-   
+
         var startD = (moment(moment($(".start-date").val(), "MM-DD-YYYY")).format("YYYY-MM-DD"))
-        if (startD == 'Invalid date'){
-            startD =""
+        if (startD == 'Invalid date') {
+            startD = ""
         }
-        
+
         var endD = (moment(moment($(".end-date").val(), "MM-DD-YYYY")).format("YYYY-MM-DD"))
-        if (endD == 'Invalid date'){
-            endD =""
+        if (endD == 'Invalid date') {
+            endD = ""
         }
         eventParameters.startDate = startD
         eventParameters.endDate = endD
         getStateId()
     })
+    $(".buttonBar").on("click", ".pageButton", function () {
+        var page = $(this).text()
+        if (page != ">" && page != "<") {
+            activePage = page
+            displayPage()
+        } else if (page == ">") {
+            for (var i = 0; i < 10; i++) {
+                var current = $($(".buttonBar").children()[i + 1]).text()
+                var last = $(".buttonBar").children().last().prev().text()
+                if (last == pages.length) { return }
+                console.log(current)
+                if (current == ">" || current == "<") { continue }
+                $(".buttonBar").children()[i + 1].firstChild.innerText = Number(1) + Number(current)
+            }
+        } else if (page == "<") {
+            var first = $(".buttonBar").children().first().next().text()
+            if (first != "1") {
+                for (var i = 0; i < 10; i++) {
+                    var current = $($(".buttonBar").children()[i+1]).text()
+                    if (current == ">" || current == "<") { continue }
+                    $(".buttonBar").children()[i+1].firstChild.innerText = Number(current) - Number(1)
+                }
+            }
+        }
+    })
 })
 
+
+function createPageButtons(pageNum) {
+    var col = $("<div>").addClass("col mx-0 px-0 ")
+    var butt = $("<button>").addClass("d-inline pageButton")
+    butt.text(pageNum)
+    col.append(butt)
+    $(".buttonBar").append(col)
+}
+
+function displayPage() {
+    $(".cardDisplay").empty()
+    for (var i in pages[activePage]) {
+        createCard(pages[activePage][i])
+    }
+}
