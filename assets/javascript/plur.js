@@ -207,7 +207,7 @@ function createCard(event) {
     $(".cardDisplay").append(card)
 }
 
-function lightbox(event) {
+    function lightbox(event) {
     $(".lightbox").show()
     var eventName = createEventName(event)
     $(".lightbox-title").text(eventName)
@@ -219,6 +219,7 @@ function lightbox(event) {
     $(".lightbox-ticketURL").html(ticketURL)
     let ticketInfo = ("<a href=" + event.link + " target='_blank' +>Event Information</a>")
     $(".lightbox-infoURL").html(ticketInfo)
+    restaurants(event.venue.address)
 }
 
 $(function () {
