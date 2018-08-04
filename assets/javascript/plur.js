@@ -189,10 +189,6 @@ function createCard(event) {
     locationCol.text(event.venue.address)
     bottomRow.append(locationCol)
 
-    // YELP STUFF
-    // let yelpRestaurant = $("<div>").addClass("col")
-    // restaurants(event.venue.address)
-
 
     if (event.festivalInd == true) {
         locationCol.addClass('col-10')
