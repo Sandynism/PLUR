@@ -53,3 +53,4 @@ function heartButtonClick(that) {
     changeLikedButton('empty', id)
   }
 }
+
