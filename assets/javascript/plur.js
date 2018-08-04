@@ -1,4 +1,4 @@
-var events = {}
+var events = []
 
 var eventParameters = {
     client: "d5cf6acf-f0c3-408b-9a6c-31d016f980aa",
@@ -8,7 +8,7 @@ var eventParameters = {
 }
 
 function getEvents() {
-    events = {}
+    events = []
     var query = $.param(eventParameters);
     console.log(query)
     $.ajax({
@@ -17,7 +17,7 @@ function getEvents() {
     }).done(function (response) {
         var dataList = response.data
         for (var i in dataList) {
-            events[dataList[i].id] = dataList[i]
+            events[i] = dataList[i]
         }
         console.log(events)
         $("tbody").empty()
