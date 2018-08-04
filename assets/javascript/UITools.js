@@ -3,6 +3,7 @@
 //   fg: '#eceeef',
 //   text: 'Thumbnail'
 // });
+var likedEvents = JSON.parse(localStorage.getItem('likedEvents')) || {}
 
 function myMap() {
   var mapCanvas = document.getElementById("map");
@@ -12,47 +13,7 @@ function myMap() {
   var map = new google.maps.Map(mapCanvas, mapOptions);
 }
 
-$("#favoritesButton").click(function () {
-  event.preventDefault()
-  $(".favoriteModal").modal('toggle')
-});
-$(".displayGif").on("click", ".card-img-top", function () {
-  var id = $(this).parent().attr('id')
-  console.log(id)
-  if ($(this).attr('src') == gifList[id].static) {
-    $(this).attr('src', gifList[id].url)
-  } else {
-    $(this).attr('src', gifList[id].static)
-  }
-});
 
-function heartButtonClick(that) {
-  var id = $(that).parent().parent().attr('id')
-  console.log(gifList[id].liked)
-  console.log
-  if (gifList[id].liked != true) {
-    console.log('liking')
-    gifList[id].liked = true
-    $(".faves").empty()
-    likedGifs[id] = gifList[id]
-    for (var i in likedGifs) {
-      console.log("dumping")
-      dumpGif(likedGifs[i], $(".faves"))
-    }
-    changeLikedButton('full', id)
-  } else {
-    console.log('disliking')
-    gifList[id].liked = false
-    delete likedGifs[id]
-    console.log('test')
-    $(".faves").empty()
-    for (var i in likedGifs) {
-      console.log("dumping")
-      dumpGif(likedGifs[i], $(".faves"))
-    }
-    changeLikedButton('empty', id)
-  }
-}
 function createEventName(event){
   var eventName = event.name
   if (eventName == null) {
@@ -67,6 +28,8 @@ function createEventName(event){
   }
   return eventName
 }
+
+
 function createCard(event) {
   var card = $("<div>").addClass("card eventCard bg-light p-3 w-100 my-3 ml-3 shadow-sm")
   card.attr('data', JSON.stringify(event))
@@ -76,9 +39,38 @@ function createCard(event) {
   var nameCol = $("<div>").addClass("col-8")
   var nameElem = $("<h5>").addClass("card-title")
   var eventName = createEventName(event)
+
+  var heartFull = $("<img>").attr('src', 'assets/images/like-full.png')
+  var heartEmpty = $("<img>").attr('src', 'assets/images/like-empty.png')
+
+
+
+  heartFull.css({
+    'width': '20px',
+    'height': '20px'
+  })
+
+  heartEmpty.css({
+    'width': '20px',
+    'height': '20px'
+  })
+
+
   nameElem.text(eventName)
   nameCol.append(nameElem)
   topRow.append(nameCol)
+  topRow.append(heartEmpty)
+
+  $(function() {
+    heartEmpty.click(function(){
+      if (heartEmpty=$("<img>").attr('src', 'assets/images/like-empty.png')){
+      heartEmpty.attr('src',"assets/images/like-full.png");
+      return false;
+    }
+    });
+  });
+
+
 
   var dateCol = $("<div>").addClass("col-4 text-right")
   var convertedDate = moment(event.date, "YYYY-MM-DD");
@@ -127,3 +119,4 @@ $(function () {
     lightbox(event)
   })
 })
+
