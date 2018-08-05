@@ -9,9 +9,3 @@ $(function () {
         todayHighlight: true
   })
 
-//   $(function () {
-//     $('.listing-block').slimScroll({
-//         height: '500px'
-//     });
-// });
-// what is this for?

@@ -189,10 +189,6 @@ function createCard(event) {
     locationCol.text(event.venue.address)
     bottomRow.append(locationCol)
 
-    // YELP STUFF
-    // let yelpRestaurant = $("<div>").addClass("col")
-    // restaurants(event.venue.address)
-
 
     if (event.festivalInd == true) {
         locationCol.addClass('col-10')
@@ -207,7 +203,7 @@ function createCard(event) {
     $(".cardDisplay").append(card)
 }
 
-function lightbox(event) {
+    function lightbox(event) {
     $(".lightbox").show()
     var eventName = createEventName(event)
     $(".lightbox-title").text(eventName)
@@ -219,6 +215,7 @@ function lightbox(event) {
     $(".lightbox-ticketURL").html(ticketURL)
     let ticketInfo = ("<a href=" + event.link + " target='_blank' +>Event Information</a>")
     $(".lightbox-infoURL").html(ticketInfo)
+    restaurants(event.venue.address)
 }
 
 $(function () {
