@@ -292,5 +292,10 @@
 }
 
 
+
+.heartButton:hover {
+  opacity:0.3;
+}
+
  /* TODO: add mobile responsive at 808px-- for the animation to disappear */
 

@@ -152,40 +152,21 @@ function createCard(event) {
     var nameElem = $("<h5>").addClass("card-title")
     var eventName = createEventName(event)
 
-    var heartFull = $("<img>").attr('src', 'assets/images/like-full.png')
-    var heartEmpty = $("<img>").attr('src', 'assets/images/like-empty.png')
+    var heartFull = $("<img>").attr('src', 'assets/images/like-full.png').addClass("col-1 text-right heartButton")
+    var heartEmpty = $("<img>").attr('src', 'assets/images/like-empty.png').addClass("col-1 text-right heartButton")
+
     heartFull.css({
     'width': '20px',
-    'height': '20px'
+    'height': '30px'
     })
     heartEmpty.css({
     'width': '20px',
-    'height': '20px'
+    'height': '30px'
     })
 
     nameElem.text(eventName)
     nameCol.append(nameElem)
     topRow.append(nameCol)
-
-    nameCol.append(heartEmpty)
-
-    $(function() {
-        heartEmpty.click(function(){
-                $(heartEmpty).remove();
-                nameCol.append(heartFull);
-                localStorage.setItem('eventStored', eventName);
-                return false;            
-    });
-    });
-    
-    $(function() {
-        heartFull.click(function(){
-                $(heartFull).remove();
-                nameCol.append(heartEmpty);
-                localStorage.removeItem('eventStored');
-                return false;       
-    });
-    });
 
     // $("#favorites-display").text(localStorage.getItem("eventStore"));
 
@@ -200,6 +181,26 @@ function createCard(event) {
     var locationCol = $("<div>").addClass("col")
     locationCol.text(event.venue.address)
     bottomRow.append(locationCol)
+
+    bottomRow.append(heartEmpty)
+
+    $(function() {
+        heartEmpty.click(function(){
+                $(heartEmpty).remove();
+                bottomRow.append(heartFull);
+                localStorage.setItem('eventStored', eventName);
+                return false;            
+    });
+    });
+    
+    $(function() {
+        heartFull.click(function(){
+                $(heartFull).remove();
+                bottomRow.append(heartEmpty);
+                localStorage.removeItem('eventStored');
+                return false;       
+    });
+    });
 
     // YELP STUFF
     // let yelpRestaurant = $("<div>").addClass("col")
