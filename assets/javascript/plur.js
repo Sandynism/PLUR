@@ -173,7 +173,7 @@ function createCard(event) {
         heartEmpty.click(function(){
                 $(heartEmpty).remove();
                 nameCol.append(heartFull);
-                sessionStorage.setItem('eventStored', eventName);
+                localStorage.setItem('eventStored', eventName);
                 return false;            
     });
     });
@@ -182,12 +182,12 @@ function createCard(event) {
         heartFull.click(function(){
                 $(heartFull).remove();
                 nameCol.append(heartEmpty);
-                sessionStorage.removeItem('eventStored');
+                localStorage.removeItem('eventStored');
                 return false;       
     });
     });
 
-    // $("#favorites-display").text(sessionStorage.getItem("eventStore"));
+    // $("#favorites-display").text(localStorage.getItem("eventStore"));
 
 
     var dateCol = $("<div>").addClass("col-4 text-right")
