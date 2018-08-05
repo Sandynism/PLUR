@@ -6,7 +6,8 @@
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
-    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended+Text|Nanum+Gothic|Acme|Amatic+SC|Fredoka+One|Patrick+Hand|Permanent+Market|Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended+Text|Nanum+Gothic|Acme|Amatic+SC|Fredoka+One|Patrick+Hand|Permanent+Market|Poiret+One"
+        rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
 
     <style>
@@ -30,7 +31,6 @@
 
         .modalHeader h1 {
             text-align: center;
-            /* font-family: 'Acme'; */
             font-family: 'Libre Barcode 39 Extended Text', cursive;
             letter-spacing: 2px;
             color: rgb(40, 39, 105);
@@ -114,6 +114,27 @@
         };
 
         ui.start('#firebaseui-auth-container', uiConfig);
+
+        //firebase authentication logout
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                // User is signed in.
+            } else {
+                // No user is signed in.
+            }
+        });
+
+        var user = firebase.auth().currentUser;
+
+        if (user != null) {
+            user.providerData.forEach(function (profile) {
+                console.log("Sign-in provider: " + profile.providerId);
+                console.log("  Provider-specific UID: " + profile.uid);
+                console.log("  Name: " + profile.displayName);
+                console.log("  Email: " + profile.email);
+                console.log("  Photo URL: " + profile.photoURL);
+            });
+        }
 
     </script>
 
