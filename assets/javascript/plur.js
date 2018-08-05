@@ -152,31 +152,43 @@ function createCard(event) {
     var nameElem = $("<h5>").addClass("card-title")
     var eventName = createEventName(event)
 
-    // var heartFull = $("<img>").attr('src', 'assets/images/like-full.png')
-    // var heartEmpty = $("<img>").attr('src', 'assets/images/like-empty.png')
-    //  heartFull.css({
-    //   'width': '20px',
-    //   'height': '20px'
-    // })
-    //  heartEmpty.css({
-    //   'width': '20px',
-    //   'height': '20px'
-    // })
+    var heartFull = $("<img>").attr('src', 'assets/images/like-full.png')
+    var heartEmpty = $("<img>").attr('src', 'assets/images/like-empty.png')
+    heartFull.css({
+    'width': '20px',
+    'height': '20px'
+    })
+    heartEmpty.css({
+    'width': '20px',
+    'height': '20px'
+    })
 
     nameElem.text(eventName)
     nameCol.append(nameElem)
     topRow.append(nameCol)
 
-//     topRow.append(heartEmpty)
-//    $(function() {
-//     heartEmpty.click(function(){
-//       if (heartEmpty=$("<img>").attr('src', 'assets/images/like-empty.png')){
-//       heartEmpty.attr('src',"assets/images/like-full.png");
-//       return false;
-//     }
-//     changeLikedButton('empty', id)
-//     });
-//   });
+    nameCol.append(heartEmpty)
+
+    $(function() {
+        heartEmpty.click(function(){
+                $(heartEmpty).remove();
+                nameCol.append(heartFull);
+                sessionStorage.setItem('eventStored', eventName);
+                return false;            
+    });
+    });
+    
+    $(function() {
+        heartFull.click(function(){
+                $(heartFull).remove();
+                nameCol.append(heartEmpty);
+                sessionStorage.removeItem('eventStored');
+                return false;       
+    });
+    });
+
+    // $("#favorites-display").text(sessionStorage.getItem("eventStore"));
+
 
     var dateCol = $("<div>").addClass("col-4 text-right")
     var convertedDate = moment(event.date, "YYYY-MM-DD");
@@ -233,6 +245,8 @@ $(function () {
 $('.close-btn').on('click', function () {
     $('.lightbox').hide()
 })
+
+
 
 function createPageButtons(pageNum) {
     var col = $("<div>").addClass("col mx-0 px-0 ")
