@@ -4,6 +4,9 @@ var activePage = 1
 var createdPagesAlready = false
 var featured = ["coachella", "electric zoo", "ultra", "electric daisy", "creamfields", "electric forest", "holy ship", "escape", "countdown", "burning man", "lollapalooza", "moonrise festival", "crssd", "tomorrowland"]
 
+
+// var likedEvents = JSON.parse(localStorage.getItem('eventStored')) || {}
+
 var eventParameters = {
     client: "d5cf6acf-f0c3-408b-9a6c-31d016f980aa",
     locationIds: "38",
@@ -168,8 +171,6 @@ function createCard(event) {
     nameCol.append(nameElem)
     topRow.append(nameCol)
 
-    // $("#favorites-display").text(localStorage.getItem("eventStore"));
-
 
     var dateCol = $("<div>").addClass("col-4 text-right")
     var convertedDate = moment(event.date, "YYYY-MM-DD");
@@ -181,26 +182,6 @@ function createCard(event) {
     var locationCol = $("<div>").addClass("col")
     locationCol.text(event.venue.address)
     bottomRow.append(locationCol)
-
-    bottomRow.append(heartEmpty)
-
-    $(function() {
-        heartEmpty.click(function(){
-                $(heartEmpty).remove();
-                bottomRow.append(heartFull);
-                localStorage.setItem('eventStored', eventName);
-                return false;            
-    });
-    });
-    
-    $(function() {
-        heartFull.click(function(){
-                $(heartFull).remove();
-                bottomRow.append(heartEmpty);
-                localStorage.removeItem('eventStored');
-                return false;       
-    });
-    });
 
     // YELP STUFF
     // let yelpRestaurant = $("<div>").addClass("col")
@@ -217,8 +198,36 @@ function createCard(event) {
     }
 
     card.append(bottomRow)
+    bottomRow.append(heartEmpty)
     $(".cardDisplay").append(card)
+
+    
+    $(heartEmpty).each(function() {
+        heartEmpty.click(function(){
+                $(heartEmpty).remove();
+                bottomRow.append(heartFull);
+    });
+    });
+    
+    $(heartFull).each(function() {
+        heartFull.click(function(){
+                $(heartFull).remove();
+                bottomRow.append(heartEmpty);
+                localStorage.removeItem('eventStored');
+    });
+    });
 }
+
+function savedata(event) {
+    heartEmpty.click(function(){
+    var items = [];
+    for(var i = 0; i < event.length; i++) {
+        items.push(event[i]);
+    }
+    localStorage.setItem("eventStored", JSON.stringify(items));
+});
+}
+
 
 function lightbox(event) {
     $(".lightbox").show()
