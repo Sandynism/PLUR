@@ -198,13 +198,18 @@
 .lightbox-title {
   font-family: 'Patrick Hand';
   font-size: 50px;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
-.lightbox-date, .lightbox-address, .lightbox-venue, .lightbox-ticketURL, .lightbox-infoURL {
-  font-family: 'Nanum Gothic';
-  font-size: 20px;
+.lightbox-date, .lightbox-address, .lightbox-venue, .lightbox-ticketURL, .lightbox-infoURL, .lightbox-yelp {
+  font-family: 'Permanent Marker';
+  font-size: 25px;
+  margin-top: 30px;
 }
+
+/* .lightbox-ticketURL, .lightbox-infoURL, .lightbox-yelp {
+  color: rgb(195, 70, 226);
+} */
 
 
   

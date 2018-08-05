@@ -5,7 +5,7 @@ var createdPagesAlready = false
 var featured = ["coachella", "electric zoo", "ultra", "electric daisy", "creamfields", "electric forest", "holy ship", "escape", "countdown", "burning man", "lollapalooza", "moonrise festival", "crssd", "tomorrowland"]
 
 
-// var likedEvents = JSON.parse(localStorage.getItem('eventStored')) || {}
+var eventList = JSON.parse(localStorage.getItem("storedEvents")) 
 
 var eventParameters = {
     client: "d5cf6acf-f0c3-408b-9a6c-31d016f980aa",
@@ -155,16 +155,16 @@ function createCard(event) {
     var nameElem = $("<h5>").addClass("card-title")
     var eventName = createEventName(event)
 
-    var heartFull = $("<img>").attr('src', 'assets/images/like-full.png').addClass("col-1 text-right heartButton")
-    var heartEmpty = $("<img>").attr('src', 'assets/images/like-empty.png').addClass("col-1 text-right heartButton")
+    var heartFull = $("<img>").attr('src', 'assets/images/like-full.png').addClass(" heartButton heartButtonFull")
+    var heartEmpty = $("<img>").attr('src', 'assets/images/like-empty.png').addClass(" heartButton heartButtonEmpty")
 
     heartFull.css({
-    'width': '20px',
-    'height': '30px'
+    'width': '25px',
+    'height': '25px'
     })
     heartEmpty.css({
-    'width': '20px',
-    'height': '30px'
+    'width': '25px',
+    'height': '25px'
     })
 
     nameElem.text(eventName)
@@ -179,7 +179,7 @@ function createCard(event) {
     card.append(topRow)
 
     var bottomRow = $("<div>").addClass('row')
-    var locationCol = $("<div>").addClass("col")
+    var locationCol = $("<div>").addClass("col-11")
     locationCol.text(event.venue.address)
     bottomRow.append(locationCol)
 
@@ -213,20 +213,29 @@ function createCard(event) {
         heartFull.click(function(){
                 $(heartFull).remove();
                 bottomRow.append(heartEmpty);
-                localStorage.removeItem('eventStored');
     });
     });
 }
 
-function savedata(event) {
-    heartEmpty.click(function(){
-    var items = [];
-    for(var i = 0; i < event.length; i++) {
-        items.push(event[i]);
-    }
-    localStorage.setItem("eventStored", JSON.stringify(items));
-});
-}
+$(document).on("click", "heartButtonEmpty", function() {
+    var eventList = JSON.parse(localStorage.getItem("event"));
+    var currentIndex = $(this).attr("data-index");
+
+    eventList.splice(currentIndex, 1);
+    eventList = storedEvents;
+
+    localStorage.setItem("storedEvents", JSON.stringify(event));
+  });
+
+$(document).on("click", "heartButtonFull", function() {
+    event.preventDefault();
+    list = []
+    var eventList = JSON.parse(localStorage.getItem("event"));
+    list.push(eventList);
+    
+    localStorage.setItem("storedEvents", JSON.stringify(event));
+
+  });
 
 
 function lightbox(event) {
@@ -241,6 +250,7 @@ function lightbox(event) {
     $(".lightbox-ticketURL").html(ticketURL)
     let ticketInfo = ("<a href=" + event.link + " target='_blank' +>Event Information</a>")
     $(".lightbox-infoURL").html(ticketInfo)
+    restaurants(event.venue.address)
 }
 
 $(function () {
