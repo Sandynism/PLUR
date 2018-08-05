@@ -203,17 +203,26 @@ function createCard(event) {
     $(".cardDisplay").append(card)
 }
 
+function splitAddress(address) {
+    console.log(address)
+    array = address.split(",")
+    let a1 = array[0]
+    let a2 = array[1] + "," + array[2]
+    $(".lightbox-address-1").text(a1)
+    $(".lightbox-address-2").text(a2)
+}
+
     function lightbox(event) {
     $(".lightbox").show()
     var eventName = createEventName(event)
     $(".lightbox-title").text(eventName)
     var convertedDate = moment(event.date, "YYYY-MM-DD");
     $(".lightbox-date").text(moment(convertedDate).format("MM/DD/YY"))
-    $(".lightbox-address").text(event.venue.address)
-    $(".lightbox-venue").text(event.venue.name)
-    let ticketURL = ("<a href=" + event.ticketLink + " target='_blank' +>Ticket Purchase</a>")
+    $(".lightbox-venue").text(event.venue.name)    
+    splitAddress(event.venue.address)
+    let ticketURL = (`<a href=` + event.ticketLink + ` target='_blank' +><i class="fas fa-ticket-alt"></i></a>`)
     $(".lightbox-ticketURL").html(ticketURL)
-    let ticketInfo = ("<a href=" + event.link + " target='_blank' +>Event Information</a>")
+    let ticketInfo = (`<a href=` + event.link + ` target='_blank' +><i class="fas fa-info-circle"></i></a>`)
     $(".lightbox-infoURL").html(ticketInfo)
     restaurants(event.venue.address)
 }
@@ -221,7 +230,6 @@ function createCard(event) {
 $(function () {
 
     $(".cardDisplay").on("click", ".eventCard", function () {
-
         var event = JSON.parse($(this).attr('data'))
         lightbox(event)
     })
@@ -287,3 +295,4 @@ function featuredEvents() {
         }
     })
 }
+

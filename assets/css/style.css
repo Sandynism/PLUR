@@ -10,9 +10,14 @@
     letter-spacing: 2px;
   }  
 
+  .fa-user-circle {
+    font-size: 25px;
+  }
+
   .trbc, .card-deck {
     background:transparent 
   }
+
 
   .card-deck {
     margin-top: 30px;
@@ -20,7 +25,7 @@
   
   .card-header {
     /* background-color: rgb(31, 31, 129); */
-    background-color: #a6c!important;
+    background-color: rgb(52, 54, 194);
   }
 
   .card-header h4 {
@@ -32,6 +37,8 @@
 
   .card-body {
     background-color: rgb(250, 251, 252);
+    /* position: relative;     */
+
   }
 
   .card-title {
@@ -42,16 +49,6 @@
   .card-body ul {
     font-family: 'Raleway';
     font-size: 20px;
-  }
-
-  .card-body btn {
-    bottom: 5px;
-  }
-
-  .dropdown-toggle {
-    font-size: 18px;
-    letter-spacing: 2px;
-    font-family: 'Permanent Marker';
   }
   
   .carousel {
@@ -140,7 +137,7 @@
     float: left;
   }
 
-  .animate {
+  /* .animate {
     position: absolute;
     top: 200px;
     width: 100%;
@@ -160,7 +157,7 @@
    @-webkit-keyframes masked-animation {
     0%{ background-position: 0 0;}
     100% { background-position: -100% 0;}
-   }
+   } */
 
   
 .lightbox{
@@ -194,27 +191,39 @@
   text-shadow: none;
 }
 
-
 .lightbox-title {
   font-family: 'Patrick Hand';
-  font-size: 50px;
+  font-size: 40px;
   letter-spacing: 3px;
 }
 
-.lightbox-date, .lightbox-address, .lightbox-venue, .lightbox-ticketURL, .lightbox-infoURL, .lightbox-yelp {
+.lightbox-date {
   font-family: 'Permanent Marker';
   font-size: 25px;
-  margin-top: 30px;
+  margin-top: 5px;
+  font-style: italic;
 }
 
-/* .lightbox-ticketURL, .lightbox-infoURL, .lightbox-yelp {
-  color: rgb(195, 70, 226);
-} */
-
-
+.lightbox-venue, .lightbox-yelp {
+  font-family: 'Permanent Marker';
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
   
+.lightbox-address-1, .lightbox-address-2  {
+  font-family: 'Permanent Marker';
+  font-size: 25px;
+  /* font-style: italic; */
+}
 
- /* TODO: add mobile responsive at 808px-- for the animation to disappear */
+
+.lightbox-ticketURL, .lightbox-infoURL {
+  font-size: 50px;
+  display: inline;
+  margin: 30px;
+}
+
 .letters {
   font-family: 'Lakki Reddy';
 }
@@ -297,5 +306,17 @@
 }
 
 
- /* TODO: add mobile responsive at 808px-- for the animation to disappear */
+@media (max-width:1025px) {
+  .spinner, .ml6 {
+    display: none;
+  }
+}
 
+@media (max-width:768px) {
+  #startDatePicker, #endDatePicker {
+    width: 70%;
+  }
+
+
+ 
+}
