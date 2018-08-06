@@ -4,6 +4,9 @@ var activePage = 1
 var createdPagesAlready = false
 var featured = ["coachella", "electric zoo", "ultra", "electric daisy", "creamfields", "electric forest", "holy ship", "escape", "countdown", "burning man", "lollapalooza", "moonrise festival", "crssd", "tomorrowland"]
 
+
+var eventList = JSON.parse(localStorage.getItem("storedEvents")) 
+
 var eventParameters = {
     client: "d5cf6acf-f0c3-408b-9a6c-31d016f980aa",
     locationIds: "38",
@@ -152,20 +155,23 @@ function createCard(event) {
     var nameElem = $("<h5>").addClass("card-title")
     var eventName = createEventName(event)
 
-    // var heartFull = $("<img>").attr('src', 'assets/images/like-full.png')
-    // var heartEmpty = $("<img>").attr('src', 'assets/images/like-empty.png')
-    // heartFull.css({
-    // 'width': '20px',
-    // 'height': '20px'
-    // })
-    // heartEmpty.css({
-    // 'width': '20px',
-    // 'height': '20px'
-    // })
+  /*jack added like button*/
+    var heartFull = $("<img>").attr('src', 'assets/images/like-full.png').addClass(" heartButton heartButtonFull")
+    var heartEmpty = $("<img>").attr('src', 'assets/images/like-empty.png').addClass(" heartButton heartButtonEmpty")
 
+    heartFull.css({
+    'width': '25px',
+    'height': '25px'
+    })
+    heartEmpty.css({
+    'width': '25px',
+    'height': '25px'
+    })
+  
     nameElem.text(eventName)
     nameCol.append(nameElem)
     topRow.append(nameCol)
+
 
     //  nameCol.append(heartEmpty)
     // $(function() {
@@ -188,6 +194,7 @@ function createCard(event) {
     // $("#favorites-display").text(sessionStorage.getItem("eventStore"));
 
 
+
     var dateCol = $("<div>").addClass("col-4 text-right")
     var convertedDate = moment(event.date, "YYYY-MM-DD");
     dateCol.text(moment(convertedDate).format("MM/DD/YY"))
@@ -195,7 +202,7 @@ function createCard(event) {
     card.append(topRow)
 
     var bottomRow = $("<div>").addClass('row')
-    var locationCol = $("<div>").addClass("col")
+    var locationCol = $("<div>").addClass("col-11")
     locationCol.text(event.venue.address)
     bottomRow.append(locationCol)
 
@@ -210,17 +217,56 @@ function createCard(event) {
     }
 
     card.append(bottomRow)
+    bottomRow.append(heartEmpty)
     $(".cardDisplay").append(card)
+
+    
+    $(heartEmpty).each(function() {
+        heartEmpty.click(function(){
+                $(heartEmpty).remove();
+                bottomRow.append(heartFull);
+    });
+    });
+    
+    $(heartFull).each(function() {
+        heartFull.click(function(){
+                $(heartFull).remove();
+                bottomRow.append(heartEmpty);
+    });
+    });
 }
 
-function splitAddress(address) {
-    console.log(address)
-    array = address.split(",")
-    let a1 = array[0]
-    let a2 = array[1] + "," + array[2]
-    $(".lightbox-address-1").text(a1)
-    $(".lightbox-address-2").text(a2)
-}
+
+$(document).on("click", "heartButtonEmpty", function() {
+    var eventList = JSON.parse(localStorage.getItem("event"));
+    var currentIndex = $(this).attr("data-index");
+
+    eventList.splice(currentIndex, 1);
+    eventList = storedEvents;
+
+    localStorage.setItem("storedEvents", JSON.stringify(event));
+  });
+
+$(document).on("click", "heartButtonFull", function() {
+    event.preventDefault();
+    list = []
+    var eventList = JSON.parse(localStorage.getItem("event"));
+    list.push(eventList);
+    
+    localStorage.setItem("storedEvents", JSON.stringify(event));
+
+  });
+
+
+
+  function splitAddress(address) {
+      console.log(address)
+      array = address.split(",")
+      let a1 = array[0]
+      let a2 = array[1] + "," + array[2]
+      $(".lightbox-address-1").text(a1)
+      $(".lightbox-address-2").text(a2)
+  }
 
     function lightbox(event) {
     $(".lightbox").show()
@@ -248,6 +294,8 @@ $(function () {
 $('.close-btn').on('click', function () {
     $('.lightbox').hide()
 })
+
+
 
 function createPageButtons(pageNum) {
     var col = $("<div>").addClass("col mx-0 px-0 ")

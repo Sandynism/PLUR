@@ -160,7 +160,7 @@
    } */
 
   
-.lightbox{
+.lightbox {
   display: none;
   width:40%;
   height:95%;
@@ -306,6 +306,14 @@
 }
 
 
+/*added-like-button*/
+
+.heartButton:hover {
+  opacity:0.3;
+}
+
+ /* TODO: add mobile responsive at 808px-- for the animation to disappear */
+
 @media (max-width:1025px) {
   .spinner, .ml6 {
     display: none;
@@ -316,6 +324,7 @@
   #startDatePicker, #endDatePicker {
     width: 70%;
   }
+
 
 
  
