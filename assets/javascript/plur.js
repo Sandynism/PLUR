@@ -154,29 +154,39 @@ function createCard(event) {
 
     // var heartFull = $("<img>").attr('src', 'assets/images/like-full.png')
     // var heartEmpty = $("<img>").attr('src', 'assets/images/like-empty.png')
-    //  heartFull.css({
-    //   'width': '20px',
-    //   'height': '20px'
+    // heartFull.css({
+    // 'width': '20px',
+    // 'height': '20px'
     // })
-    //  heartEmpty.css({
-    //   'width': '20px',
-    //   'height': '20px'
+    // heartEmpty.css({
+    // 'width': '20px',
+    // 'height': '20px'
     // })
 
     nameElem.text(eventName)
     nameCol.append(nameElem)
     topRow.append(nameCol)
 
-//     topRow.append(heartEmpty)
-//    $(function() {
-//     heartEmpty.click(function(){
-//       if (heartEmpty=$("<img>").attr('src', 'assets/images/like-empty.png')){
-//       heartEmpty.attr('src',"assets/images/like-full.png");
-//       return false;
-//     }
-//     changeLikedButton('empty', id)
-//     });
-//   });
+    //  nameCol.append(heartEmpty)
+    // $(function() {
+    //     heartEmpty.click(function(){
+    //             $(heartEmpty).remove();
+    //             nameCol.append(heartFull);
+    //             sessionStorage.setItem('eventStored', eventName);
+    //             return false;            
+    // });
+    // });
+
+    // $(function() {
+    //     heartFull.click(function(){
+    //             $(heartFull).remove();
+    //             nameCol.append(heartEmpty);
+    //             sessionStorage.removeItem('eventStored');
+    //             return false;       
+    // });
+    // });
+    // $("#favorites-display").text(sessionStorage.getItem("eventStore"));
+
 
     var dateCol = $("<div>").addClass("col-4 text-right")
     var convertedDate = moment(event.date, "YYYY-MM-DD");
@@ -203,17 +213,26 @@ function createCard(event) {
     $(".cardDisplay").append(card)
 }
 
+function splitAddress(address) {
+    console.log(address)
+    array = address.split(",")
+    let a1 = array[0]
+    let a2 = array[1] + "," + array[2]
+    $(".lightbox-address-1").text(a1)
+    $(".lightbox-address-2").text(a2)
+}
+
     function lightbox(event) {
     $(".lightbox").show()
     var eventName = createEventName(event)
     $(".lightbox-title").text(eventName)
     var convertedDate = moment(event.date, "YYYY-MM-DD");
     $(".lightbox-date").text(moment(convertedDate).format("MM/DD/YY"))
-    $(".lightbox-address").text(event.venue.address)
-    $(".lightbox-venue").text(event.venue.name)
-    let ticketURL = ("<a href=" + event.ticketLink + " target='_blank' +>Ticket Purchase</a>")
+    $(".lightbox-venue").text(event.venue.name)    
+    splitAddress(event.venue.address)
+    let ticketURL = (`<a href=` + event.ticketLink + ` target='_blank' +><i class="fas fa-ticket-alt"></i></a>`)
     $(".lightbox-ticketURL").html(ticketURL)
-    let ticketInfo = ("<a href=" + event.link + " target='_blank' +>Event Information</a>")
+    let ticketInfo = (`<a href=` + event.link + ` target='_blank' +><i class="fas fa-info-circle"></i></a>`)
     $(".lightbox-infoURL").html(ticketInfo)
     restaurants(event.venue.address)
 }
@@ -221,7 +240,6 @@ function createCard(event) {
 $(function () {
 
     $(".cardDisplay").on("click", ".eventCard", function () {
-
         var event = JSON.parse($(this).attr('data'))
         lightbox(event)
     })
@@ -287,3 +305,4 @@ function featuredEvents() {
         }
     })
 }
+

@@ -13,8 +13,9 @@
         success: function(data) {
           $('.lightbox-yelp').empty()
           let url = data.businesses.slice(0,3)
+          console.log(data.businesses)
           for (let i=0; i<3; i++) {
-            let yelpLink = (`<div><a href=` + url[i].url + ` target='_blank' +>Yelp Recommendation #${i+1}</a></div>`)
+            let yelpLink = (`<div><a href=` + url[i].url + ` target='_blank' +><i class="fab fa-yelp"></i> ${i+1}. ${url[i].name}</a></div>`)
             $('.lightbox-yelp').append(yelpLink)
           }
 
