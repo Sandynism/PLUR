@@ -1,165 +1,139 @@
-  .hide {
-    display: none;
-  }
+.hide {
+  display: none;
+}
 
-  .button .btn-secondary {
-    background-color: #a6c!important;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-    font-family: 'Permanent Marker';
-    font-size: 18px;
-    letter-spacing: 2px;
-  }  
+.button .btn-secondary {
+  background-color: #a6c!important;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  font-family: 'Permanent Marker';
+  font-size: 18px;
+  letter-spacing: 2px;
+}  
 
-  .fa-user-circle {
-    font-size: 25px;
-  }
+.fa-user-circle {
+  font-size: 25px;
+}
 
-  .trbc, .card-deck {
-    background:transparent 
-  }
+.trbc, .card-deck {
+  background:transparent 
+}
 
+.card-deck {
+  margin-top: 30px;
+}
 
-  .card-deck {
-    margin-top: 30px;
-  }
-  
-  .card-header {
-    /* background-color: rgb(31, 31, 129); */
-    background-color: rgb(52, 54, 194);
-  }
+.card-header {
+  background-color: rgb(52, 54, 194);
+}
 
-  .card-header h4 {
-    font-family: 'Permanent Marker';
-    font-size: 30px;
-    letter-spacing: 2px;
-    color: white;
-  }
+.card-header h4 {
+  font-family: 'Permanent Marker';
+  font-size: 30px;
+  letter-spacing: 2px;
+  color: white;
+}
 
-  .card-body {
-    background-color: rgb(250, 251, 252);
-    /* position: relative;     */
+.card-body {
+  background-color: rgb(250, 251, 252);
+}
 
-  }
+.card-title {
+  font-family: 'Raleway';
+  font-size: 28px;
+}
 
-  .card-title {
-    font-family: 'Raleway';
-    font-size: 28px;
-  }
+.card-body ul {
+  font-family: 'Raleway';
+  font-size: 20px;
+}
 
-  .card-body ul {
-    font-family: 'Raleway';
-    font-size: 20px;
-  }
-  
-  .carousel {
-    margin-top: 20px;
-  }
+.carousel {
+  margin-top: 20px;
+}
 
-  .carouselImg {
-    width: 100%;
-    height: 500px;
-  }
-  
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    background: rgb(7, 98, 216);
-    opacity:0.9; 
-  }
-  
-  th, td {
-    text-align: left;
-    padding: 8px;
-  }
-  
-  .historyBar {
-    max-height:31px;
-    overflow:hidden
-  }
-  
-  .modal,.modal-open {
-    top:100px;
-    right:0px;
-    left:auto;
-    max-height: 100%;
-    overflow-y:hidden!important;
-  }
+.carouselImg {
+  width: 100%;
+  height: 500px;
+}
 
-  .modal-dialog {
-    height:100%;
-    max-height: 100%;
-  }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: rgb(7, 98, 216);
+  opacity:0.9; 
+}
 
-  .modal-content {
-    top:0px;
-    bottom:0px;
-    height:100%;
-    max-height: 100%;
-  }
+th, td {
+  text-align: left;
+  padding: 8px;
+}
 
-  .faves {
-    overflow:scroll
-  }
-  
-  .active-cyan-3 input[type=text] {
-    border: 1px solid #4dd0e1;
-    box-shadow: 0 0 0 1px #4dd0e1;
-  }
+.historyBar {
+  max-height:31px;
+  overflow:hidden
+}
 
-  #address-input {
-    width: 175px;
-    margin-right: 10px;
-    font-family: 'Permanent Marker';
-    font-size: 18px;
-    letter-spacing: 2px;
-  }
+.modal,.modal-open {
+  top:100px;
+  right:0px;
+  left:auto;
+  max-height: 100%;
+  overflow-y:hidden!important;
+}
 
-  .start-date, .end-date {
-    font-family: 'Permanent Marker';
-    font-size: 18px;
-  } 
+.modal-dialog {
+  height:100%;
+  max-height: 100%;
+}
 
-  label {
-    margin-left: 20px;
-  }
+.modal-content {
+  top:0px;
+  bottom:0px;
+  height:100%;
+  max-height: 100%;
+}
 
-  #datepicker {
-    width: 150px; 
-    margin: 0 20px 20px 20px;
-  }
+.faves {
+  overflow:scroll
+}
 
-  #datepicker > span:hover {
-    cursor: pointer;
-  }
+.active-cyan-3 input[type=text] {
+  border: 1px solid #4dd0e1;
+  box-shadow: 0 0 0 1px #4dd0e1;
+}
 
-  .map {
-    width: 400px;
-    float: left;
-  }
+#address-input {
+  width: 175px;
+  margin-right: 10px;
+  font-family: 'Permanent Marker';
+  font-size: 18px;
+  letter-spacing: 2px;
+}
 
-  /* .animate {
-    position: absolute;
-    top: 200px;
-    width: 100%;
-  }
+.start-date, .end-date {
+  font-family: 'Permanent Marker';
+  font-size: 18px;
+} 
 
-  #animation {
-    font-family: 'Patrick Hand';
-    font-size: 100px;
-    letter-spacing: 30px;
-    background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-background-size: 200% 100%;
-    -webkit-animation: masked-animation 4s infinite linear;
-  }
+label {
+  margin-left: 20px;
+}
 
-   @-webkit-keyframes masked-animation {
-    0%{ background-position: 0 0;}
-    100% { background-position: -100% 0;}
-   } */
+#datepicker {
+  width: 150px; 
+  margin: 0 20px 20px 20px;
+}
 
-  
+#datepicker > span:hover {
+  cursor: pointer;
+}
+
+.map {
+  width: 400px;
+  float: left;
+}
+
+/* lightbox css */  
 .lightbox {
   display: none;
   width:40%;
@@ -214,9 +188,7 @@
 .lightbox-address-1, .lightbox-address-2  {
   font-family: 'Permanent Marker';
   font-size: 25px;
-  /* font-style: italic; */
 }
-
 
 .lightbox-ticketURL, .lightbox-infoURL {
   font-size: 50px;
@@ -224,11 +196,13 @@
   margin: 30px;
 }
 
+
+/* logo display css */
 .letters {
   font-family: 'Lakki Reddy';
 }
 
- .ml6 {
+.ml6 {
   color:orange;
   position: relative;
   font-weight: 900;
@@ -250,13 +224,9 @@
   line-height: 1em;
 }
 
-
 .spinner {
-  /* margin: 5px auto; */
-  /* width: 50px; */
   height: 40px;
   text-align: center;
-  /* font-size: 10px;   */
 }
 
 .spinner > div {
@@ -305,14 +275,9 @@
   }
 }
 
-
-/*added-like-button*/
-
 .heartButton:hover {
   opacity:0.3;
 }
-
- /* TODO: add mobile responsive at 808px-- for the animation to disappear */
 
 @media (max-width:1025px) {
   .spinner, .ml6 {
@@ -320,12 +285,51 @@
   }
 }
 
-@media (max-width:768px) {
-  #startDatePicker, #endDatePicker {
-    width: 70%;
+@media (min-width: 376px) and (max-width: 768px) {
+  #address-input {
+    width: 100%;
+    margin-bottom: 3px;
   }
+  #startDatePicker, #endDatePicker {
+    width: 48%;
+    margin: 5px;
+  }
+  .button .btn-secondary {
+    width: 300px;
+  }
+  .btn-secondary.dropdown-toggle {
+    width: 300px;
+  }
+  .card-header h4 {
+    font-size: 70%;
+  }
+  .card-title {
+    font-size: 90%;
+  }
+  .btn[class*=btn-outline-].btn-lg {
+    font-size: 80%;
+  }
+  .map {
+    width: 275px;
+  }
+}
 
-
-
- 
+@media (max-width:375px) {
+  #address-input {
+    width: 330px;
+    margin-bottom: 3px;
+  }
+  #startDatePicker, #endDatePicker {
+    width: 97%;
+  }
+  .button .btn-secondary {
+    width: 320px;
+  }
+  .btn-secondary.dropdown-toggle {
+    width: 320px;
+  }
+  .lightbox {
+    width: 70%;
+    height: 75%;
+  }
 }
