@@ -217,6 +217,7 @@ function createCard(event) {
 
 /*jack added like button*/
 $(document).on("click", "heartButtonEmpty", function() {
+    event.preventDefault();
     var eventList = JSON.parse(localStorage.getItem("event"));
     var currentIndex = $(this).attr("data-index");
 
