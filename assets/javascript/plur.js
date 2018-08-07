@@ -263,7 +263,10 @@ function lightbox(event) {
     $(".lightbox-ticketURL").html(ticketURL)
     let ticketInfo = (`<a href=` + event.link + ` target='_blank' +><i class="fas fa-info-circle"></i></a>`)
     $(".lightbox-infoURL").html(ticketInfo)
+    let weatherInfo = (`<div class="lightbox-weather"><div id="result_lb" style="display: none"><div id="icon"></div><div id="city"><strong></strong></div><div id="weather"></div></div>`)
+    $(".lightbox-weather").html(weatherInfo)
     restaurants(event.venue.address)
+    getWeather(event.venue.address)
 }
 
 $(function () {
