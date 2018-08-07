@@ -5,7 +5,9 @@ var createdPagesAlready = false
 var featured = ["coachella", "electric zoo", "ultra", "electric daisy", "creamfields", "electric forest", "holy ship", "escape", "countdown", "burning man", "lollapalooza", "moonrise festival", "crssd", "tomorrowland"]
 
 
-var eventList = JSON.parse(localStorage.getItem("storedEvents"))
+
+// var eventList = JSON.parse(localStorage.getItem("storedEvents")) 
+
 
 var eventParameters = {
     client: "d5cf6acf-f0c3-408b-9a6c-31d016f980aa",
@@ -173,26 +175,6 @@ function createCard(event) {
     topRow.append(nameCol)
 
 
-    //  nameCol.append(heartEmpty)
-    // $(function() {
-    //     heartEmpty.click(function(){
-    //             $(heartEmpty).remove();
-    //             nameCol.append(heartFull);
-    //             sessionStorage.setItem('eventStored', eventName);
-    //             return false;            
-    // });
-    // });
-
-    // $(function() {
-    //     heartFull.click(function(){
-    //             $(heartFull).remove();
-    //             nameCol.append(heartEmpty);
-    //             sessionStorage.removeItem('eventStored');
-    //             return false;       
-    // });
-    // });
-    // $("#favorites-display").text(sessionStorage.getItem("eventStore"));
-
 
     var dateCol = $("<div>").addClass("col-4 text-right")
     var convertedDate = moment(event.date, "YYYY-MM-DD");
@@ -220,12 +202,14 @@ function createCard(event) {
     $(".cardDisplay").append(card)
 
 
-    $(heartEmpty).each(function () {
-        heartEmpty.click(function () {
-            $(heartEmpty).remove();
-            bottomRow.append(heartFull);
-        });
+    /*jack added like button*/
+    $(heartEmpty).each(function() {
+        heartEmpty.click(function(){
+                $(heartEmpty).remove();
+                bottomRow.append(heartFull);
     });
+    });
+    
 
     $(heartFull).each(function () {
         heartFull.click(function () {
@@ -236,7 +220,9 @@ function createCard(event) {
 }
 
 
-$(document).on("click", "heartButtonEmpty", function () {
+/*jack added like button*/
+$(document).on("click", "heartButtonEmpty", function() {
+    event.preventDefault();
     var eventList = JSON.parse(localStorage.getItem("event"));
     var currentIndex = $(this).attr("data-index");
 

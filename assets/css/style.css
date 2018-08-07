@@ -279,6 +279,8 @@ label {
   opacity:0.3;
 }
 
+
+
 @media (max-width:1025px) {
   .spinner, .ml6 {
     display: none;
