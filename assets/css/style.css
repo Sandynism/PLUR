@@ -3,11 +3,14 @@
 }
 
 .button .btn-secondary {
-  background-color: #a6c!important;
+  /* background-image: linear-gradient(-216deg,rgb(125, 63, 169), rgb(78, 29, 113) 50%,rgb(125, 63, 169))!important; */
+  background-image: linear-gradient(-216deg,#d63a76,#8c0038 50%,#d63a76)!important;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
   font-family: 'Permanent Marker';
-  font-size: 18px;
-  letter-spacing: 2px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  opacity:0.8;
+  height:44px;
 }  
 
 .fa-user-circle {
@@ -19,11 +22,14 @@
 }
 
 .card-deck {
-  margin-top: 30px;
+  margin-top: 590px;
+  position:relative;
+  outline-color: #eaeaea;
 }
 
 .card-header {
-  background-color: rgb(52, 54, 194);
+  background-image: linear-gradient(-216deg,#d63a76,#8c0038 50%,#d63a76);
+  opacity:0.85;
 }
 
 .card-header h4 {
@@ -31,11 +37,9 @@
   font-size: 30px;
   letter-spacing: 2px;
   color: white;
+
 }
 
-.card-body {
-  background-color: rgb(250, 251, 252);
-}
 
 .card-title {
   font-family: 'Raleway';
@@ -47,13 +51,14 @@
   font-size: 20px;
 }
 
-.carousel {
-  margin-top: 20px;
-}
+/* .carousel {
+  margin-top:20px;
+} */
 
 .carouselImg {
   width: 100%;
-  height: 500px;
+  height: 550px;
+  opacity:0.9;
 }
 
 table {
@@ -203,11 +208,17 @@ label {
 }
 
 .ml6 {
-  color:orange;
+  color:silver;
   position: relative;
   font-weight: 900;
   /* font-size: 3.8em; */
-  font-size: 2.5em;
+  font-size: 4em;
+
+  animation: change 1s  ease-in  infinite ; font-size: 36px; color:rgb(247, 239, 239); font-weight: bold}
+  @keyframes change {
+  0%{ text-shadow: 0 0 4px rgb(240, 234, 234)}
+  50%{ text-shadow: 0 0 40px #d63a76}
+  100%{ text-shadow: 0 0 4px rgb(241, 237, 237)}
 }
 
 .ml6 .text-wrapper {
@@ -230,7 +241,7 @@ label {
 }
 
 .spinner > div {
-  background-color:orange;
+  background-image: linear-gradient(-216deg,#d63a76,#8c0038 50%,#d63a76);
   height: 100%;
   width: 8px;
   display: inline-block;
@@ -337,6 +348,7 @@ label {
 }
 
 
+
 #share-buttons img {
   width: 35px;
   padding: 5px;
@@ -345,3 +357,50 @@ label {
   display: inline;
   }
   
+
+.navbar{
+  background: rgba(0,0,0,.5);
+    border-bottom: 1px solid hsla(0,0%,100%,.2);
+    height: 66px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+#dropdownMenuButton{
+  background-image: linear-gradient(-216deg,#d63a76,#8c0038 50%,#d63a76)!important;
+  opacity: 0.8;
+  height:44px;
+  text-align:center;
+  }
+
+#carouselExampleControls{
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.card-body {
+  background: #fff;
+  border-radius: 2px 2px 2px 2px; 
+  -webkit-box-shadow: 0 1px 4px 
+  rgba(0, 0, 0, 0.3), 0 0 40px 
+  rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px 
+  rgba(0, 0, 0, 0.3), 0 0 40px 
+  rgba(0, 0, 0, 0.1) inset;
+}
+
+.btn-outline-primary {
+  border: 2px solid #d63a76!important;
+  background-color: transparent!important;
+  color: #d63a76!important;
+}
+
+
+
