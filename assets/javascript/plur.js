@@ -203,13 +203,13 @@ function createCard(event) {
 
 
     /*jack added like button*/
-    $(heartEmpty).each(function() {
-        heartEmpty.click(function(){
-                $(heartEmpty).remove();
-                bottomRow.append(heartFull);
+    $(heartEmpty).each(function () {
+        heartEmpty.click(function () {
+            $(heartEmpty).remove();
+            bottomRow.append(heartFull);
+        });
     });
-    });
-    
+
 
     $(heartFull).each(function () {
         heartFull.click(function () {
@@ -221,7 +221,7 @@ function createCard(event) {
 
 
 /*jack added like button*/
-$(document).on("click", "heartButtonEmpty", function() {
+$(document).on("click", "heartButtonEmpty", function () {
     event.preventDefault();
     var eventList = JSON.parse(localStorage.getItem("event"));
     var currentIndex = $(this).attr("data-index");
@@ -291,8 +291,52 @@ function displayPage() {
     for (var i in pages[activePage]) {
         createCard(pages[activePage][i])
     }
+    //deletes pre-existing markers on map
+    deleteMarkers()
+    //creates a marker on the map
+    for (var i in pages[activePage]) {
+        var event = pages[activePage][i]
+        var eventName = createEventName(event)
+        var pos = { lat: event.venue.latitude, lng: event.venue.longitude }
+        var contentHTML= '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">'+eventName+'</h1>'+
+        '<div id="bodyContent">'+
+        '<p>'+event.venue.name+'</p>'+
+        '<p><a href = '+event.link+'>MORE INFO</a></p>'+
+        '</div>'+
+        '</div>';
+        var infowindow = new google.maps.InfoWindow();
+          lastOpenedInfoWindow=infoWindow
+        var marker = new google.maps.Marker({
+            position: pos, 
+            title: createEventName(event)
+        });
+        google.maps.event.addListener(marker,'click', (function(marker,contentHTML,infowindow,eventName){ 
+            return function() {
+                closeLastOpenedInfoWindow()
+                // infowindow.open(map,marker);
+                infowindow.setContent(contentHTML);
+                var correspondingCard = findEventCard(eventName);
+                correspondingCard.click()
+            };
+        })(marker,contentHTML,infowindow,eventName));  
+    markers.push(marker)
+    map.setCenter(pos)
+    // marker.setAnimation(google.maps.Animation.BOUNCE)
 }
+setMapOnAll(map)
 
+}
+function findEventCard(title){
+    var eventsOnPage = $(".cardDisplay").children()
+    for(var i in eventsOnPage){
+        var card  = eventsOnPage[i];
+        var data = JSON.parse($(card).attr("data"))
+        if (createEventName(data) == title){return card}
+    }
+}
 function featuredEvents() {
     var parameters = {
         client: "d5cf6acf-f0c3-408b-9a6c-31d016f980aa",
