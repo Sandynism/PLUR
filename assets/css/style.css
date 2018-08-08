@@ -146,19 +146,19 @@ label {
   width: 400px;
   float: left;
 }
-
+.eventCard{
+  background: white !important
+}
 /* lightbox css */  
 .lightbox {
-  display: none;
   width:40%;
-  height:90%;
-  background: rgb(240, 180, 69);
+  height:100%;
   position:fixed;
-  right:20px;
-  top:70px;
+  right:-550px;
+  top:0px;
   text-align: center;
-  border-radius: 10px;
   box-shadow: -15px 15px 10px 0 rgba(20, 15, 15, 0.322);
+  z-index:1001;
 
   -webkit-box-shadow: 0 0 5px #000;
   -moz-box-shadow: 0 0 5px #000;
