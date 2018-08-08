@@ -148,7 +148,7 @@ function createEventName(event) {
 }
 
 function createCard(event) {
-    var card = $("<div>").addClass("card eventCard bg-light p-3 w-100 my-3 ml-3 shadow-sm")
+    var card = $("<div>").addClass("card eventCard p-3 w-100 my-3 ml-3 shadow-sm")
     card.attr('data', JSON.stringify(event))
 
     var topRow = $("<div>").addClass("row")
@@ -219,7 +219,19 @@ function createCard(event) {
     });
 }
 
+function openLightbox(){
+    $(".lightbox").animate({
+        right:'0px'
+    })
 
+}
+function closeLightbox(){
+
+    $(".lightbox").animate({
+        right:'-550px'
+    })
+
+}
 /*jack added like button*/
 $(document).on("click", "heartButtonEmpty", function () {
     event.preventDefault();
@@ -252,7 +264,7 @@ function splitAddress(address) {
 }
 
 function lightbox(event) {
-    $(".lightbox").show()
+    openLightbox()
     var eventName = createEventName(event)
     $(".lightbox-title").text(eventName)
     var convertedDate = moment(event.date, "YYYY-MM-DD");
@@ -284,7 +296,7 @@ $(function () {
 })
 
 $('.close-btn').on('click', function () {
-    $('.lightbox').hide()
+    closeLightbox()
 })
 
 
