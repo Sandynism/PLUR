@@ -25,6 +25,7 @@
   margin-top: 590px;
   position:relative;
   outline-color: #eaeaea;
+  
 }
 
 .card-header {
@@ -37,6 +38,7 @@
   font-size: 30px;
   letter-spacing: 2px;
   color: white;
+  
 
 }
 
@@ -49,6 +51,7 @@
 .card-body ul {
   font-family: 'Raleway';
   font-size: 20px;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* .carousel {
@@ -415,5 +418,11 @@ label {
   margin-top:70px;
 }
 
+.headImg{
 
+  background-position: 40% 50%;
+  position: relative;
+  -webkit-box-shadow: 0 2px 44px 0 #b4c1d1;
+  box-shadow: 0 2px 44px 0 #b4c1d1;
+}
 
