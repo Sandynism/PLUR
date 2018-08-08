@@ -201,6 +201,10 @@ label {
   background: white !important
 }
 
+.festivalCard{
+  margin-top:600px;
+}
+
 /* lightbox css */  
 .lightbox {
   width:40%;
