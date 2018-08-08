@@ -2,6 +2,42 @@
   display: none;
 }
 
+
+.navbar{
+  background: rgba(0,0,0,.5);
+  border-bottom: 1px solid hsla(0,0%,100%,.2);
+  height: 66px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+#dropdownMenuButton{
+  background-image: linear-gradient(-216deg,#d63a76,#8c0038 50%,#d63a76)!important;
+  opacity: 0.8;
+  height:44px;
+  text-align:center;
+  }
+
+.btn-outline-primary {
+  border: 2px solid #d63a76!important;
+  background-color: transparent!important;
+  color: #d63a76!important;
+}
+
+.cardDisplay{
+  margin-top:70px;
+}
+
+.headImg{
+  background-position: 40% 50%;
+  position: relative;
+  -webkit-box-shadow: 0 2px 44px 0 #b4c1d1;
+  box-shadow: 0 2px 44px 0 #b4c1d1;
+}
+
 .button .btn-secondary {
   /* background-image: linear-gradient(-216deg,rgb(125, 63, 169), rgb(78, 29, 113) 50%,rgb(125, 63, 169))!important; */
   background-image: linear-gradient(-216deg,#d63a76,#8c0038 50%,#d63a76)!important;
@@ -12,15 +48,6 @@
   opacity:0.8;
   height:44px;
 }  
-#map,.map{
-  height:100%
-}
-.map{
-  max-height:700px
-}
-.cardDisplay{
-  margin-top:100px;
-}
 
 .fa-user-circle {
   font-size: 25px;
@@ -34,7 +61,6 @@
   margin-top: 100px;
   position:relative;
   outline-color: #eaeaea;
-  
 }
 
 .card-header {
@@ -47,14 +73,23 @@
   font-size: 30px;
   letter-spacing: 2px;
   color: white;
-  
-
 }
-
 
 .card-title {
   font-family: 'Raleway';
   font-size: 28px;
+}
+
+.card-body {
+  background: #fff;
+  border-radius: 2px 2px 2px 2px; 
+  -webkit-box-shadow: 0 1px 4px 
+  rgba(0, 0, 0, 0.3), 0 0 40px 
+  rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px 
+  rgba(0, 0, 0, 0.3), 0 0 40px 
+  rgba(0, 0, 0, 0.1) inset;
 }
 
 .card-body ul {
@@ -63,14 +98,18 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* .carousel {
-  margin-top:20px;
-} */
-
 .carouselImg {
   width: 100%;
   height: 550px;
   opacity:0.9;
+}
+
+#carouselExampleControls{
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 table {
@@ -145,16 +184,27 @@ label {
   cursor: pointer;
 }
 
+#map,.map{
+  height:100%
+}
+
+.map{
+  max-height:700px
+}
+
 .map {
   width: 400px;
   float: left;
 }
+
 .eventCard{
   background: white !important
 }
+
 .festivalCard{
   margin-top:600px;
 }
+
 /* lightbox css */  
 .lightbox {
   width:40%;
@@ -174,24 +224,6 @@ label {
   background: -ms-radial-gradient(center, circle, #f0f0f0, rgb(240, 180, 69));
   background: -o-radial-gradient(center, circle, #f0f0f0, rgb(240, 180, 69));
   background: radial-gradient(center, circle, #f0f0f0, rgb(240, 180, 69));
-}
-
-.close-btn {
-  background:transparent;
-  font-size: 40px;
-  outline: 0;
-  position: absolute;
-  bottom: 10px;
-  border: none;
-  left: 47%
-}
-
-.close-btn:hover {
-  text-shadow: 1px 1px 4px rgba(20, 15, 15, 0.322);
-}
-
-.close-btn:active {
-  text-shadow: none;
 }
 
 .lightbox-title {
@@ -225,6 +257,34 @@ label {
   margin: 30px;
 }
 
+.heartButton:hover {
+  opacity:0.3;
+}
+
+#share-buttons img {
+  padding: 5px;
+  border: 0;
+  box-shadow: 0;
+  display: inline;
+  }
+  
+.close-btn {
+  background:transparent;
+  font-size: 40px;
+  outline: 0;
+  position: absolute;
+  bottom: 10px;
+  border: none;
+  left: 47%
+}
+
+.close-btn:hover {
+  text-shadow: 1px 1px 4px rgba(20, 15, 15, 0.322);
+}
+
+.close-btn:active {
+  text-shadow: none;
+}
 
 /* logo display css */
 .letters {
@@ -310,12 +370,10 @@ label {
   }
 }
 
-.heartButton:hover {
-  opacity:0.3;
-}
+  
 
 
-
+/* media queries */
 @media (max-width:1025px) {
   .spinner, .ml6 {
     display: none;
@@ -372,69 +430,4 @@ label {
 }
 
 
-
-#share-buttons img {
-  width: 35px;
-  padding: 5px;
-  border: 0;
-  box-shadow: 0;
-  display: inline;
-  }
-  
-
-.navbar{
-  background: rgba(0,0,0,.5);
-    border-bottom: 1px solid hsla(0,0%,100%,.2);
-    height: 66px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-#dropdownMenuButton{
-  background-image: linear-gradient(-216deg,#d63a76,#8c0038 50%,#d63a76)!important;
-  opacity: 0.8;
-  height:44px;
-  text-align:center;
-  }
-
-#carouselExampleControls{
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.card-body {
-  background: #fff;
-  border-radius: 2px 2px 2px 2px; 
-  -webkit-box-shadow: 0 1px 4px 
-  rgba(0, 0, 0, 0.3), 0 0 40px 
-  rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0 1px 4px 
-  rgba(0, 0, 0, 0.3), 0 0 40px 
-  rgba(0, 0, 0, 0.1) inset;
-}
-
-.btn-outline-primary {
-  border: 2px solid #d63a76!important;
-  background-color: transparent!important;
-  color: #d63a76!important;
-}
-
-.cardDisplay{
-  margin-top:70px;
-}
-
-.headImg{
-
-  background-position: 40% 50%;
-  position: relative;
-  -webkit-box-shadow: 0 2px 44px 0 #b4c1d1;
-  box-shadow: 0 2px 44px 0 #b4c1d1;
-}
 
