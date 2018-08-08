@@ -347,6 +347,17 @@ label {
   }
 }
 
+
+
+#share-buttons img {
+  width: 35px;
+  padding: 5px;
+  border: 0;
+  box-shadow: 0;
+  display: inline;
+  }
+  
+
 .navbar{
   background: rgba(0,0,0,.5);
     border-bottom: 1px solid hsla(0,0%,100%,.2);
@@ -390,5 +401,6 @@ label {
   background-color: transparent!important;
   color: #d63a76!important;
 }
+
 
 
