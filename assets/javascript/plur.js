@@ -3,7 +3,7 @@ var pages = []
 var activePage = 1
 var createdPagesAlready = false
 var featured = ["coachella", "electric zoo", "ultra", "electric daisy", "creamfields", "electric forest", "holy ship", "escape", "countdown", "burning man", "lollapalooza", "moonrise festival", "crssd", "tomorrowland"]
-
+var liked = JSON.parse(localStorage.getItem('liked'))||{}
 
 
 // var eventList = JSON.parse(localStorage.getItem("storedEvents")) 
@@ -47,7 +47,6 @@ function getEvents() {
                 createPageButtons(">")
                 break
             }
-
         }
         createdPagesAlready = true
     }).fail(function () {
@@ -198,13 +197,21 @@ function createCard(event) {
     }
 
     card.append(bottomRow)
-    bottomRow.append(heartEmpty)
+    if(liked[event.id]==null){
+        bottomRow.append(heartEmpty)
+    }else{
+        bottomRow.append(heartFull)
+    }
+
     $(".cardDisplay").append(card)
 
 
     /*jack added like button*/
     $(heartEmpty).each(function () {
         heartEmpty.click(function () {
+            var data = JSON.parse($(this).parent().parent().attr("data"))
+            liked[data.id]=data
+            localStorage.setItem("liked",JSON.stringify(liked))
             $(heartEmpty).remove();
             bottomRow.append(heartFull);
         });
@@ -213,6 +220,9 @@ function createCard(event) {
 
     $(heartFull).each(function () {
         heartFull.click(function () {
+            var data = JSON.parse($(this).parent().parent().attr("data"))
+            delete liked[data.id]
+            localStorage.setItem("liked",JSON.stringify(liked))
             $(heartFull).remove();
             bottomRow.append(heartEmpty);
         });
@@ -232,28 +242,6 @@ function closeLightbox(){
     })
 
 }
-/*jack added like button*/
-$(document).on("click", "heartButtonEmpty", function () {
-    event.preventDefault();
-    var eventList = JSON.parse(localStorage.getItem("event"));
-    var currentIndex = $(this).attr("data-index");
-
-    eventList.splice(currentIndex, 1);
-    eventList = storedEvents;
-
-    localStorage.setItem("storedEvents", JSON.stringify(event));
-});
-
-$(document).on("click", "heartButtonFull", function () {
-    event.preventDefault();
-    list = []
-    var eventList = JSON.parse(localStorage.getItem("event"));
-    list.push(eventList);
-
-    localStorage.setItem("storedEvents", JSON.stringify(event));
-
-});
-
 
 function splitAddress(address) {
     array = address.split(",")
