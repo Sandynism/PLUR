@@ -275,7 +275,7 @@ function lightbox(event) {
     $(".lightbox-ticketURL").html(ticketURL)
     let ticketInfo = (`<a href=` + event.link + ` target='_blank' +><i class="fas fa-info-circle"></i></a>`)
     $(".lightbox-infoURL").html(ticketInfo)
-    let weatherInfo = (`<div class="lightbox-weather"><div id="result_lb" style="display: none"><div id="icon"></div><div id="city"><strong></strong></div><div id="weather"></div></div>`)
+    let weatherInfo = (`<div class="result_lb" id="weather-data"></div>`)
     $(".lightbox-weather").html(weatherInfo)
     let shareInfo = (`<h4>Share this event:</h4> <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20` + event.ticketLink + `"><img src="https://simplesharebuttons.com/images/somacro/email.png" width="30px" alt="Email" /></a>
     <a href="http://www.facebook.com/sharer.php?u=` + event.ticketLink+ `" target="_blank"><img src="https://simplesharebuttons.com/images/somacro/facebook.png" width="30px" alt="Facebook" /></a>
@@ -284,6 +284,8 @@ function lightbox(event) {
     <a href="http://www.tumblr.com/share/link?url=` + event.ticketLink+ `&amp;title=Simple Share Buttons" target="_blank"><img src="https://simplesharebuttons.com/images/somacro/tumblr.png" width="30px" alt="Tumblr" /></a>
     <a href="https://twitter.com/share?url=` + event.ticketLink+ `&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank"><img src="https://simplesharebuttons.com/images/somacro/twitter.png" width="30px" alt="Twitter" /></a>`)
     $(".lightbox-share").html(shareInfo)
+    let forecast = (`<a href="plurweather.html">PLUR Weather Forecast</a>`)
+    $(".lightbox-forecast").html(forecast)
     restaurants(event.venue.address)
     getWeather(event.venue.address)
 }
