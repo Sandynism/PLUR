@@ -81,3 +81,20 @@ input[type=submit] {
   margin-right: 10px;
   color:#d12028;
 }
+
+
+
+.carouselImg{
+  background-color: rgba(0,0,0,0.5);
+  height:350px;
+  object-fit:cover;
+  opacity:0.9;
+  }
+
+ .navbar{
+height: 50px;
+}
+
+.container{
+  margin-top:400px;
+}
