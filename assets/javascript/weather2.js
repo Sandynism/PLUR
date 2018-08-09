@@ -8,7 +8,7 @@ function getWeather(city){
 			document.getElementById('cityname').value="";
 		}
 	};
-	xhr.open("GET","http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=dd3814244eb85cf1819f30b318aa5fe2");
+	xhr.open("GET","https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=dd3814244eb85cf1819f30b318aa5fe2");
 	xhr.send();
   }
   else{
@@ -23,7 +23,7 @@ function getWeather(city){
 function formatWeather(data){
 	return "<h3>Current Weather for " + data.name + ", " + data.sys.country + "</h3>" + 
 			"<p>Weather: " + data.weather[0].main+ "</p>" + 
-			"<p>Weather Description: " + data.weather[0].description +"<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png'/>" + "</p>" + 
+			"<p>Weather Description: " + data.weather[0].description +"<img src='https://openweathermap.org/img/w/" + data.weather[0].icon + ".png'/>" + "</p>" + 
 			"<p>Temperature: " + data.main.temp + "&deg;C</p>" + 
 			"<p>Pressure: " + data.main.pressure + "hPa</p>" + 
 			"<p>Humidity: " + data.main.humidity + "%</p>" + 
@@ -43,7 +43,7 @@ function getForecast(city,days){
 			document.getElementById('days').value=""
 		}
 	};
-	xhr.open("GET","http://api.openweathermap.org/data/2.5/forecast/daily?q="+ city + "&cnt=" + days + "&units=metric&appid=d610395e85b50074b834a0234b0776db");
+	xhr.open("GET","https://api.openweathermap.org/data/2.5/forecast/daily?q="+ city + "&cnt=" + days + "&units=metric&appid=d610395e85b50074b834a0234b0776db");
 	xhr.send();
 	return false;
 }
@@ -52,7 +52,7 @@ function formatForecast(data){
 	var table="";
 	for (var i = 0; i < data.list.length; i++) {
 		table += "<tr>";
-		table += "<td><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'/></td>";
+		table += "<td><img src='https://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'/></td>";
 		table += "<td>" + data.list[i].weather[0].main + "</td>";
 		table += "<td>" + data.list[i].weather[0].description + "</td>";
 		table += "<td>" + data.list[i].temp.morn + "&deg;C</td>";
