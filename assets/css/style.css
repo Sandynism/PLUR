@@ -169,6 +169,7 @@ th, td {
 .start-date, .end-date {
   font-family: 'Permanent Marker';
   font-size: 18px;
+  margin-right: 2px;
 } 
 
 label {
