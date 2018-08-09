@@ -12,13 +12,13 @@ async function getWeather(address){
 			document.getElementById("weather-data").innerHTML=formattedData;
 		}
 	};
-	xhr.open("GET","http://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&&units=Imperial&appid=dd3814244eb85cf1819f30b318aa5fe2");
+	xhr.open("GET","https://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&&units=Imperial&appid=dd3814244eb85cf1819f30b318aa5fe2");
 	xhr.send();
   }
 
 
 function formatWeather(data){
-  return  "<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png'/>" + "<p>" + data.weather[0].main + "</p>" + "<p>Temperature: " + data.main.temp + "&deg;F"+"</P>";
+  return  "<img src='https://openweathermap.org/img/w/" + data.weather[0].icon + ".png'/>" + "<p>" + data.weather[0].main + "</p>" + "<p>Temperature: " + data.main.temp + "&deg;F"+"</P>";
 }
 
 $('.cardDisplay').click(function() {
