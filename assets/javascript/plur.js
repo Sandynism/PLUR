@@ -8,7 +8,6 @@ var liked = JSON.parse(localStorage.getItem('liked'))||{}
 
 // var eventList = JSON.parse(localStorage.getItem("storedEvents")) 
 
-
 var eventParameters = {
     client: "d5cf6acf-f0c3-408b-9a6c-31d016f980aa",
     locationIds: "38",
