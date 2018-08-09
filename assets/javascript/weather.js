@@ -1,3 +1,5 @@
+/* New Weather API  DO NOT REMOVE !!! 
+
 async function getWeather(address){
 	let zipcode = address.match(/\b\d{5}\b/g)
   if (!zipcode) return
@@ -27,10 +29,13 @@ $('.cardDisplay').click(function() {
 
 });
 
+*/
 
-/*
+
+/*  old API */
 
 //navbar weather
+
 jQuery(function($){
   function getWeather(){
     var zipcode = $("input[type = search-weather]").val();
@@ -76,7 +81,7 @@ async function getWeather(address){
 
   });
 
-*/
+
 
 
 
