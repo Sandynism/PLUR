@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Jua|Righteous" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
@@ -15,7 +16,7 @@
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       max-width: 300px;
       margin: auto;
-      margin-top: 120px;
+      margin-top: 40px;
       text-align: center;
       background-color: white;
     }
@@ -26,37 +27,83 @@
       color: black;
       padding: 5px;
     }
+
+    .intro{
+      font-family: 'Righteous';
+      position:absolute;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      margin: 0 auto;
+      left: 0;
+      position: absolute;
+      right: 0;
+      transform: translateY(-50%);
+      top: 35%;
+      text-align: center;
+      font-size:50px;
+      color:white;
+     
+    }
+
+   .carouselImg{
+    background-color: rgba(0,0,0,0.5);
+    height:350px;
+    object-fit:cover;
+    opacity:0.9;
+
+ 
+  
+    }
+
+
+.dim{
+  opacity:0.6; filter: alpha(opacity=60);
+}
+ 
+.dimback{
+  background: #000;
+  height:350px;
+
+}
+   .navbar{
+  height: 50px;
+
+}
+  
+
   </style>
 
 </head>
 
-<body>
+<body style="background-color:#eaeaea">
   <div class="container">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <h1>About Team PLUR</h1>
-
-
-      <div class="spinner">
-        <div class="rect1"></div>
-        <div class="rect2"></div>
-        <div class="rect3"></div>
-        <div class="rect4"></div>
-        <div class="rect5"></div>
-      </div>
-
+    <nav class="navbar">
+            
       <div class="ml6">
         <span class="text-wrapper">
-          <span class="letters">PLUR</span>
+            <span class="letters">PLUR</span>
         </span>
-      </div>
+    </div>
   </div>
   </nav>
+  <div class="dimback">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img class="carouselImg dim" src="assets/images/head.png" alt="header">
+    </div>
+  </div>
+  </div>
 
 
+  <div class="intro">
+    <p>Meet Our Team</p>
+    <p>The Best People Formula For Great Website</p>
+  </div>
   <div class="row">
     <div class="about-card col-md-3">
       <img src="" alt="Cefi" style="width:100%">
       <h1>Cefi Menda</h1>
+  
       <a href="">
         <i class="fa fa-facebook-square"></i>
       </a>
@@ -72,6 +119,7 @@
     </div>
   
     <div class="about-card col-md-3">
+
       <img src="assets/images/sandy.jpg"
         alt="Sandy" style="width:100%">
       <h1>Sandy Yeung</h1>
