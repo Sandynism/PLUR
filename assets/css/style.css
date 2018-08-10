@@ -397,26 +397,43 @@ label {
 
 
 /* media queries */
-@media (max-width:1025px) {
+@media (max-width:1024px) {
   .spinner, .ml6 {
     display: none;
+  }
+  .weather {
+    margin-left: 0px;
+  }
+  .map {
+    right: 15px;
+  }
+  .cardDisplay {
+    left: 5px;
   }
 }
 
 @media (min-width: 376px) and (max-width: 768px) {
+  .navbar {
+    height: 275px;
+  }
   #address-input {
     width: 100%;
-    margin-bottom: 3px;
   }
   #startDatePicker, #endDatePicker {
     width: 48%;
-    margin: 5px;
+    margin: 6px;
   }
   .button .btn-secondary {
+    width: 700px;
+  }
+  .weather, .user {
     width: 300px;
   }
-  .btn-secondary.dropdown-toggle {
-    width: 300px;
+  .weather {
+    margin-left: 7px;
+  }
+  .user {
+    margin-right: 3px;
   }
   .card-header h4 {
     font-size: 70%;
@@ -428,12 +445,19 @@ label {
     font-size: 80%;
   }
   .map {
+    margin-top: 70%;
     width: 275px;
+  }
+  .cardDisplay{
+    margin-top: 65%;
   }
 }
 
+
 @media (max-width:375px) {
-  
+  .navbar { 
+    height: 250px;
+  }
   #address-input {
     width: 330px;
     margin-bottom: 3px;
@@ -449,7 +473,21 @@ label {
   }
   .lightbox {
     width: 70%;
-    height: 75%;
+    height: 98%;
+    font-size: 85%;
+  }
+  .weather {
+    display: none;
+  }
+  .map {
+    display: none;
+  }
+  .cardDisplay {
+    margin-top: 65%;
+  }
+  .likedLightbox {
+    width: 300px;
+    font-size: 70%;
   }
 }
 

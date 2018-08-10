@@ -4,7 +4,7 @@ async function getWeather(address){
 	let zipcode = address.match(/\b\d{5}\b/g)
   if (!zipcode) return
   zipcode = zipcode[zipcode.length - 1]
-  console.log(zipcode) 
+  // console.log(zipcode) 
 	var xhr=new XMLHttpRequest();
 	xhr.onreadystatechange=function(){
 		if (this.status==200 && this.readyState==4) {
