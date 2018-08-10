@@ -265,8 +265,6 @@ function lightbox(event) {
     let weatherInfo = (`<div class="result_lb" id="weather-data"></div>`) 
     /* API2 Do not remove ---- let weatherInfo = (`<div class="lightbox-weather"><div id="result_lb" style="display: none"><div id="icon"></div><div id="city"><strong></strong></div><div id="weather"></div></div>`) */
     $(".lightbox-weather").html(weatherInfo)
-    let forecast = (`<a href="plurweather.html">PLUR Weather Forecast</a>`)
-    $(".lightbox-forecast").html(forecast)
     let shareInfo = (`<h4>Share this event:</h4> <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20` + event.ticketLink + `"><img src="https://simplesharebuttons.com/images/somacro/email.png" width="30px" alt="Email" /></a>
     <a href="http://www.facebook.com/sharer.php?u=` + event.ticketLink+ `" target="_blank"><img src="https://simplesharebuttons.com/images/somacro/facebook.png" width="30px" alt="Facebook" /></a>
     <a href="https://plus.google.com/share?url=` + event.ticketLink+ `" target="_blank"><img src="https://simplesharebuttons.com/images/somacro/google.png" width="30px" alt="Google" /></a>
