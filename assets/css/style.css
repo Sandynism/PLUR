@@ -209,7 +209,7 @@ label {
 }
 
 /* lightbox css */  
-.lightbox {
+.lightbox,.likedLightbox{
   width:40%;
   height:100%;
   position:fixed;
@@ -218,6 +218,13 @@ label {
   text-align: center;
   box-shadow: -15px 15px 10px 0 rgba(20, 15, 15, 0.322);
   z-index:1001;
+}
+.likedLightbox{
+  background:white;
+  overflow:scroll;
+}
+.lightbox {
+  
 
   -webkit-box-shadow: 0 0 5px #000;
   -moz-box-shadow: 0 0 5px #000;
@@ -271,7 +278,7 @@ label {
   display: inline;
   }
   
-.close-btn {
+.closeLightbox {
   background:transparent;
   font-size: 40px;
   outline: 0;
@@ -280,7 +287,19 @@ label {
   border: none;
   left: 47%
 }
-
+.closeLiked{
+  background: transparent;
+  font-size: 30px;
+  outline: 0;
+  top: 10px;
+  border: none;
+  left: 10px;
+}
+.likedSymbol{
+  width: 50px;
+  height: 50px;
+  top: 30px;
+}
 .close-btn:hover {
   text-shadow: 1px 1px 4px rgba(20, 15, 15, 0.322);
 }
