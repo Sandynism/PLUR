@@ -3,7 +3,8 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
     <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended+Text|Nanum+Gothic|Acme|Amatic+SC|Fredoka+One|Patrick+Hand|Permanent+Market|Poiret+One"
@@ -38,43 +39,8 @@
     </style>
 </head>
 
+
 <body>
-
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '{646616099046762}',
-                cookie: true,
-                xfbml: true,
-                version: '{v3.1}'
-            });
-
-            FB.AppEvents.logPageView();
-
-        };
-
-        FB.getLoginStatus(function (response) {
-            statusChangeCallback(response);
-        });
-
-        // <fb:login-button scope="public_profile" onlogin="checkLoginState();">
-        // </fb:login-button>
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-
-        function checkLoginState() {
-            FB.getLoginStatus(function (response) {
-                statusChangeCallback(response);
-            });
-        }
-    </script>
 
     <div class="signIn">
         <div class="modalHeader">
@@ -86,59 +52,9 @@
     </div>
 
 
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyBaQcT1xxN2rvNs56VpHGQ3rYU9MJQh5ag",
-            authDomain: "plur-9d2d6.firebaseapp.com",
-            databaseURL: "https://plur-9d2d6.firebaseio.com",
-            projectId: "plur-9d2d6",
-            storageBucket: "plur-9d2d6.appspot.com",
-            messagingSenderId: "236610079904"
-        };
-        firebase.initializeApp(config);
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-        var uiConfig = {
-            callbacks: {
-                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-                    return true;
-                },
-                uiShown: function () {
-                    document.getElementById('loader').style.display = 'none';
-                }
-            },
-            signInFlow: 'popup',
-            signInSuccessUrl: 'index.html',
-            signInOptions: [firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-            firebase.auth.EmailAuthProvider.PROVIDER_ID]
-        };
+  
 
-        ui.start('#firebaseui-auth-container', uiConfig);
-
-        //firebase authentication logout
-        firebase.auth().onAuthStateChanged(function (user) {
-            if (user) {
-                // User is signed in.
-            } else {
-                // No user is signed in.
-            }
-        });
-
-        var user = firebase.auth().currentUser;
-
-        if (user != null) {
-            user.providerData.forEach(function (profile) {
-                console.log("Sign-in provider: " + profile.providerId);
-                console.log("  Provider-specific UID: " + profile.uid);
-                console.log("  Name: " + profile.displayName);
-                console.log("  Email: " + profile.email);
-                console.log("  Photo URL: " + profile.photoURL);
-            });
-        }
-
-    </script>
-
-    <script>
+    <!-- <script>
         // Get the modal
         var modal = document.getElementById('login');
 
@@ -148,9 +64,10 @@
                 modal.style.display = "none";
             }
         }
-    </script>
+    </script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/javascript/login.js"></script>
 
 
 </body>
