@@ -4,6 +4,7 @@
 
 
 .navbar{
+  overflow:hidden;
   background: rgba(0,0,0,.5);
   border-bottom: 1px solid hsla(0,0%,100%,.2);
   height: 66px;
@@ -452,6 +453,7 @@ label {
   }
 }
 
+
 @media (max-width:375px) {
   .navbar { 
     height: 250px;
@@ -488,6 +490,8 @@ label {
     font-size: 70%;
   }
 }
+
+
 
 
 
