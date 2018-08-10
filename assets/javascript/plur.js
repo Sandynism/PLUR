@@ -82,27 +82,13 @@ function getStateId() {
 
 $(function () {
     featuredEvents()
-    $(":submit").click(function () {
+    $(".submitButton").click(function () {
         event.preventDefault()
         $('.carouselHeader').addClass('hide')
         $('.festivalCard').addClass('hide')
         $('.mapEvents').removeClass('hide')
-
-        var state = $("input[type = search]").val()
-        locationParameters.state = state
-
-        var startD = (moment(moment($(".start-date").val(), "MM-DD-YYYY")).format("YYYY-MM-DD"))
-        if (startD == 'Invalid date') {
-            startD = ""
-        }
-
-        var endD = (moment(moment($(".end-date").val(), "MM-DD-YYYY")).format("YYYY-MM-DD"))
-        if (endD == 'Invalid date') {
-            endD = ""
-        }
-        eventParameters.startDate = startD
-        eventParameters.endDate = endD
-        getStateId()
+        makeSearch()
+        
     })
     $(".buttonBar").on("click", ".pageButton", function () {
         var page = $(this).text()
@@ -130,6 +116,24 @@ $(function () {
     })
 })
 
+function makeSearch(){
+    var state = $("input[type = search]").val()
+        locationParameters.state = state
+
+        var startD = (moment(moment($(".start-date").val(), "MM-DD-YYYY")).format("YYYY-MM-DD"))
+        if (startD == 'Invalid date') {
+            startD = ""
+        }
+
+        var endD = (moment(moment($(".end-date").val(), "MM-DD-YYYY")).format("YYYY-MM-DD"))
+        if (endD == 'Invalid date') {
+            endD = ""
+        }
+        eventParameters.startDate = startD
+        eventParameters.endDate = endD
+        getStateId()
+}
+
 function createEventName(event) {
     var eventName = event.name
     if (eventName == null) {
@@ -145,7 +149,8 @@ function createEventName(event) {
     return eventName
 }
 
-function createCard(event) {
+function createCard(event,target) {
+    var target = target|| $(".cardDisplay")
     var card = $("<div>").addClass("card eventCard p-3 w-100 my-3 ml-3 shadow-sm")
     card.attr('data', JSON.stringify(event))
 
@@ -153,6 +158,9 @@ function createCard(event) {
 
     var nameCol = $("<div>").addClass("col-8")
     var nameElem = $("<h5>").addClass("card-title")
+    nameElem.css({
+        width: "fit-content"
+    })
     var eventName = createEventName(event)
 
     /*jack added like button*/
@@ -172,8 +180,6 @@ function createCard(event) {
     nameCol.append(nameElem)
     topRow.append(nameCol)
 
-
-
     var dateCol = $("<div>").addClass("col-4 text-right")
     var convertedDate = moment(event.date, "YYYY-MM-DD");
     dateCol.text(moment(convertedDate).format("MM/DD/YY"))
@@ -182,7 +188,9 @@ function createCard(event) {
 
     var bottomRow = $("<div>").addClass('row')
     var locationCol = $("<div>").addClass("col-11")
-    locationCol.text(event.venue.address)
+    var locationP = $("<p>").css({width:"fit-content"})
+    locationP.text(event.venue.address)
+    locationCol.append(locationP)
     bottomRow.append(locationCol)
 
 
@@ -202,7 +210,7 @@ function createCard(event) {
         bottomRow.append(heartFull)
     }
 
-    $(".cardDisplay").append(card)
+    target.append(card)
 
 
     /*jack added like button*/
@@ -213,6 +221,7 @@ function createCard(event) {
             localStorage.setItem("liked",JSON.stringify(liked))
             $(heartEmpty).remove();
             bottomRow.append(heartFull);
+            refreshLikedLightbox()
         });
     });
 
@@ -224,19 +233,20 @@ function createCard(event) {
             localStorage.setItem("liked",JSON.stringify(liked))
             $(heartFull).remove();
             bottomRow.append(heartEmpty);
+            refreshLikedLightbox()
         });
     });
 }
 
-function openLightbox(){
-    $(".lightbox").animate({
+function openLightbox(target){
+    target.animate({
         right:'0px'
     })
 
 }
-function closeLightbox(){
+function closeLightbox(target){
 
-    $(".lightbox").animate({
+    target.animate({
         right:'-550px'
     })
 
@@ -251,7 +261,7 @@ function splitAddress(address) {
 }
 
 function lightbox(event) {
-    openLightbox()
+    openLightbox($(".lightbox"))
     var eventName = createEventName(event)
     $(".lightbox-title").text(eventName)
     var convertedDate = moment(event.date, "YYYY-MM-DD");
@@ -285,8 +295,8 @@ $(function () {
     })
 })
 
-$('.close-btn').on('click', function () {
-    closeLightbox()
+$('.closeLightbox').on('click', function () {
+    closeLightbox($(".lightbox"))
 })
 
 

@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css">
@@ -13,8 +15,9 @@
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-    
-    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended+Text|Nanum+Gothic|Acme|Amatic+SC|Fredoka+One|Patrick+Hand|Permanent+Market|Poiret+One|Lakki+Reddy|Raleway" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended+Text|Nanum+Gothic|Acme|Amatic+SC|Fredoka+One|Patrick+Hand|Permanent+Market|Poiret+One|Lakki+Reddy|Raleway"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <title>PLUR</title>
@@ -43,7 +46,7 @@
                     </span>
                 </div>
                 <div class="button">
-                    <button class="btn btn-secondary btn-sm" name="submit" type="submit">Submit</button>
+                    <button class="btn btn-secondary btn-sm submitButton">Submit</button>
                 </div>
             </form>
 
@@ -60,7 +63,7 @@
                     <span class="letters">PLUR</span>
                 </span>
             </div>
-                              
+
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
@@ -71,9 +74,10 @@
                     <a class="dropdown-item logout hide" href="index.html">User Logout</a>
                     <a class="dropdown-item plurchat" href="chat.html">🔥PLUR Chat</a>
                     <a class="dropdown-item about" href="about.html">Team PLUR</a>
+                    <a class="dropdown-item myFaves">Liked Events</a>
                 </div>
             </div>
-            
+
 
         </div>
     </nav>
@@ -121,7 +125,7 @@
                         <li>text</li>
                         <li>text</li>
                     </ul>
-                    <a class="mt-auto btn btn-lg btn-block btn-outline-primary" target = "_blank" href="#">Info</a>
+                    <a class="mt-auto btn btn-lg btn-block btn-outline-primary" target="_blank" href="#">Info</a>
 
                 </div>
             </div>
@@ -136,7 +140,7 @@
                         <li>text</li>
                         <li>text</li>
                     </ul>
-                    <a class="mt-auto btn btn-lg btn-block btn-outline-primary" target = "_blank" href="#">Info</a>
+                    <a class="mt-auto btn btn-lg btn-block btn-outline-primary" target="_blank" href="#">Info</a>
                 </div>
             </div>
             <div class="card mb-3 shadow-sm featured3">
@@ -150,7 +154,7 @@
                         <li>text</li>
                         <li>text</li>
                     </ul>
-                    <a class="mt-auto btn btn-lg btn-block btn-outline-primary" target = "_blank" href="#">Info</a>                
+                    <a class="mt-auto btn btn-lg btn-block btn-outline-primary" target="_blank" href="#">Info</a>
                 </div>
             </div>
             <div class="card mb-3 shadow-sm featured4">
@@ -164,82 +168,105 @@
                         <li>text</li>
                         <li>text</li>
                     </ul>
-                    <a class="mt-auto btn btn-lg btn-block btn-outline-primary" target = "_blank" href="#">Info</a>
+                    <a class="mt-auto btn btn-lg btn-block btn-outline-primary" target="_blank" href="#">Info</a>
                 </div>
             </div>
         </div>
     </div>
 
-    
-        <div class="container mapEvents hide">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card-deck mb-6 text-center map">
-                        <div class="card mb-6 shadow-sm map">
-                            <div class="card-header">
-                                <h4 class="my-0"><i class="fas fa-map-marked-alt"></i></h4>
-                                <br>
-                            </div>
 
-                            <div class="card-body" id="map">
+    <div class="container mapEvents hide">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card-deck mb-6 text-center map">
+                    <div class="card mb-6 shadow-sm map">
+                        <div class="card-header">
+                            <h4 class="my-0">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </h4>
+                            <br>
+                        </div>
 
-                            </div>
+                        <div class="card-body" id="map">
+
                         </div>
                     </div>
                 </div>
+            </div>
 
-        
-                <div class="col-md-8">
-                    <div class="row cardDisplayContainer mt-3">
-                        <div class="col-12 cardDisplay"></div>
-                    </div>
-                    <div class="col-12">
-                        <div class="buttonBar row mx-auto mb-3" style="width: fit-content;"></div>
-                    </div>
+
+            <div class="col-md-8">
+                <div class="row cardDisplayContainer mt-3">
+                    <div class="col-12 cardDisplay"></div>
+                </div>
+                <div class="col-12">
+                    <div class="buttonBar row mx-auto mb-3" style="width: fit-content;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="lightbox">
+        <button class="close-btn closeLightbox">x</button>
+        <div class="lightbox-title"></div>
+        <div class="lightbox-date"></div>
+        <div class="lightbox-venue"></div>
+        <div class="lightbox-address-1"></div>
+        <div class="lightbox-address-2"></div>
+        <div class="lightbox-weather"></div>
+        <div class="lightbox-forecast"></div>
+        <div class="lightbox-ticketURL"></div>
+        <div class="lightbox-infoURL"></div>
+        <div class="lightbox-yelp"></div>
+        <div class="lightbox-share"></div>
+    </div>
+    <div class="likedLightbox">
+        <div class="row mt-3">
+            <div class="col-6 text-left pl-4">
+                <button class="close-btn closeLiked">x</button>
+            </div>
+            <div class="col-6">
+                <img src='assets/images/like-full.png' class='likedSymbol'>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 px-5">
+                <div class="likedDump">
+
                 </div>
             </div>
         </div>
 
-
-        <div class="lightbox">
-            <button class="close-btn">x</button>
-            <div class="lightbox-title"></div>
-            <div class="lightbox-date"></div>
-            <div class="lightbox-venue"></div>
-            <div class="lightbox-address-1"></div>
-            <div class="lightbox-address-2"></div>
-            <div class="lightbox-weather"></div>
-            <div class="lightbox-forecast"></div>
-            <div class="lightbox-ticketURL"></div>
-            <div class="lightbox-infoURL"></div>
-            <div class="lightbox-yelp"></div>
-            <div class="lightbox-share"></div>
-        </div>
-
-    
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-        <script src="assets/javascript/plur.js"></script>
-        <script src="assets/javascript/UITools.js"></script>
-        <script src="assets/javascript/yelp.js"></script>
-        <script src="assets/javascript/datepicker.js"></script>
-        <script src="assets/javascript/weather.js"></script>
-        <script src="assets/javascript/maps.js"></script>
-        <script src="assets/javascript/login.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOzzsqepsn8MIOuiSj7R9_6FjsY07Qzq0&callback=initMap" async defer></script>
+    </div>
 
 
-        <script>
-            $(document).ready(function () {
-                let states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
-                states.forEach(function (element) {
-                    $('#options').append($(`<option value="${element}">`))
-                })
-            });
-        </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="assets/javascript/plur.js"></script>
+    <script src="assets/javascript/UITools.js"></script>
+    <script src="assets/javascript/yelp.js"></script>
+    <script src="assets/javascript/datepicker.js"></script>
+    <script src="assets/javascript/weather.js"></script>
+    <script src="assets/javascript/maps.js"></script>
+    <script src="assets/javascript/login.js"></script>
+    <script src="assets/javascript/liked.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOzzsqepsn8MIOuiSj7R9_6FjsY07Qzq0&callback=initMap" async
+        defer></script>
+
+
+    <script>
+        $(document).ready(function () {
+            let states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+            states.forEach(function (element) {
+                $('#options').append($(`<option value="${element}">`))
+            })
+        });
+    </script>
 
 </body>
 
