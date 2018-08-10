@@ -9,35 +9,29 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/weather.css">
   <style>
-
    
     h5{color:white;}
     a{
     color:white !important;
     }
-
    .text-wrapper{
     padding-top:0rem !important;
     float:left;
     }
-
    #submitCity{ 
   background-image: linear-gradient(-216deg,#d63a76,#8c0038 50%,#d63a76);
   border-color:#8c0038 !important;
    }
-
 .table{
   background-color:white;
 }
-
   .carouselImg{
   /* background-color: rgba(0,0,0,0.5); */
   height:350px;
   object-fit:cover;
   opacity:0.8;
-  z-index:-1;
+  
   }
-
  .navbarweather{
     background: rgba(0,0,0,.5);
   border-bottom: 1px solid hsla(0,0%,100%,.2);
@@ -48,19 +42,30 @@
   width: 100%;
   z-index: 1000;
 }
-
-
 .carousel-inner{
   
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
-z-index:-1 !important;
+/* z-index:-1 !important; */
+}
+.jumbo{
+  margin-top:350px;
+  padding-top:40px;
 }
 
-.jumbo{
-  margin-top:220px;
+ @media (max-width:1025px) {
+  .spinner, .ml6 {
+    display: block;
+    font-size:10px;
+  }
+  h3{
+  font-size:10px;
+  }
+  h5{
+  font-size:10px;
+  }
 }
   </style>
 </head>
@@ -85,12 +90,12 @@ z-index:-1 !important;
           <h3><a href="plurweather.html">Forecast</a></h3><span class="blink"> | </span>
           <h5>Get weather information in advance for upcoming events.</h5>
 
-          <div class="carousel-inner">
+          <!-- <div class="carousel-inner">
               <div class="carousel-item active">
                   <img class="carouselImg dim" src="assets/images/112.png" alt="header">
               </div>
            
-            </div>
+            </div> -->
           
         
           <!-- <div class="spinner">
@@ -108,13 +113,19 @@ z-index:-1 !important;
           </div> -->
         </div>
       </nav>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="carouselImg dim" src="assets/images/112.png" alt="header">
+        </div>
+     
+      </div>
       </div>  
 
 
 
 <div class="jumbotron jumbo">
 	
-</div>
+
 <div class="container">
 	<div class="row">
 		<div class="col-3">
@@ -126,7 +137,7 @@ z-index:-1 !important;
     <div class="col-3">
         <button id="submitCity" class="btn btn-primary" onclick="getForecast(document.getElementById('cityname').value,document.getElementById('days').value);">Get Forecast</button>
     </div>
-  </div><br><br>
+  <br><br>
 
           
 
