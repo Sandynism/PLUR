@@ -8,28 +8,104 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/weather.css">
+  <style>
+
+   
+    h5{color:white;}
+    a{
+    color:white !important;
+    }
+
+   .text-wrapper{
+    padding-top:0rem !important;
+    float:left;
+    }
+
+   #submitCity{ 
+  background-image: linear-gradient(-216deg,#d63a76,#8c0038 50%,#d63a76);
+  border-color:#8c0038 !important;
+   }
+
+.table{
+  background-color:white;
+}
+
+  .carouselImg{
+  /* background-color: rgba(0,0,0,0.5); */
+  height:350px;
+  object-fit:cover;
+  opacity:0.8;
+  z-index:-1;
+  }
+
+ .navbarweather{
+    background: rgba(0,0,0,.5);
+  border-bottom: 1px solid hsla(0,0%,100%,.2);
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+
+.carousel-inner{
+  
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+z-index:-1 !important;
+}
+
+.jumbo{
+  margin-top:220px;
+}
+  </style>
 </head>
-<body>
+<body style="background-color:#eaeaea">
     <div class="container">
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-          <h3>PLUR Weather</h3><span class="blink"> | </span>
+        <nav class="navbar navbarweather navbar-inverse navbar-fixed-top">
+          
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+
+            <div class="ml6">
+                <span class="text-wrapper">
+                    <span class="letters"><a href="index.html">PLUR Weather</a></span>
+                </span>
+            </div>
+          <!-- <h3>PLUR Weather</h3><span class="blink"> | </span> -->
           <h3><a href="plurweather.html">Forecast</a></h3><span class="blink"> | </span>
           <h5>Get weather information in advance for upcoming events.</h5>
+
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <img class="carouselImg dim" src="assets/images/112.png" alt="header">
+              </div>
+           
+            </div>
           
         
-          <div class="spinner">
+          <!-- <div class="spinner">
               <div class="rect1"></div>
               <div class="rect2"></div>
               <div class="rect3"></div>
               <div class="rect4"></div>
               <div class="rect5"></div>
-          </div>
+          </div> -->
       
-          <div class="ml6">
+          <!-- <div class="ml6">
               <span class="text-wrapper">
                   <span class="letters"><a href="index.html">PLUR</a></span>
               </span>
-          </div>
+          </div> -->
         </div>
       </nav>
       </div>  
