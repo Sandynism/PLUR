@@ -4,7 +4,6 @@
 
 
 .navbar{
-  overflow:hidden;
   background: rgba(0,0,0,.5);
   border-bottom: 1px solid hsla(0,0%,100%,.2);
   height: 66px;
@@ -225,16 +224,16 @@ label {
   overflow:scroll;
 }
 .lightbox {
-  
-
-  -webkit-box-shadow: 0 0 5px #000;
-  -moz-box-shadow: 0 0 5px #000;
-  box-shadow: 0 0 5px #000; 
-  background: -webkit-radial-gradient(center, circle, #f0f0f0, rgb(240, 180, 69));
-  background: -moz-radial-gradient(center, circle, #f0f0f0, rgb(240, 180, 69));
-  background: -ms-radial-gradient(center, circle, #f0f0f0, rgb(240, 180, 69));
-  background: -o-radial-gradient(center, circle, #f0f0f0, rgb(240, 180, 69));
-  background: radial-gradient(center, circle, #f0f0f0, rgb(240, 180, 69));
+  display: block;
+  cursor: default;
+  background: #fff url(http://tympanus.net/Tutorials/OriginalHoverEffects/images/bgimg.jpg) repeat;
+  -webkit-box-shadow:0 5px 10px #666; 
+  -moz-box-shadow:0 5px 10px #666;
+  box-shadow:0 5px 10px #666;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  -o-border-radius:5px;
+  border-radius:5px;  
 }
 
 .lightbox-title {
