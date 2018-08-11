@@ -44,6 +44,8 @@ $('.logout').on('click', function (event) {
         // Sign-out successful.
         $('.login').removeClass('hide')
         $('.logout').addClass('hide')
+        let dropdown = $('.fa-user-circle')
+        dropdown.text(" ")
     }).catch(function (error) {
         console.log(error)
         // An error happened.
