@@ -241,6 +241,8 @@ function createCard(event,target) {
 function openLightbox(target){
     target.animate({
         right:'0px',
+
+        
     })
 
 }
