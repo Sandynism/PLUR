@@ -392,6 +392,17 @@ label {
   }
 }
 
+.likedLightbox{
+  background: #fff url(http://tympanus.net/Tutorials/OriginalHoverEffects/images/bgimg.jpg) repeat;
+  -webkit-box-shadow:0 5px 10px #666; 
+  -moz-box-shadow:0 5px 10px #666;
+  box-shadow:0 5px 10px #666;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  -o-border-radius:5px;
+  border-radius:5px;  
+}
+
   
 
 
