@@ -240,14 +240,14 @@ function createCard(event,target) {
 
 function openLightbox(target){
     target.animate({
-        right:'0px'
+        right:'0px',
     })
 
 }
 function closeLightbox(target){
 
     target.animate({
-        right:'-550px'
+        right:'-40%',
     })
 
 }
