@@ -8,3 +8,6 @@ PLUR offers an environment where people can coordinate events, arrange ticket pu
 
 This web application was built with love by [Cefi Menda](https://github.com/cefimenda), [Jack Yang](https://github.com/JackJoeng), 
 [Silu Hu](https://github.com/erinh816) & [Sandy Yeung](https://github.com/sandynism).
+
+
+------
