@@ -209,7 +209,7 @@ label {
 }
 
 /* lightbox css */  
-.lightbox,.likedLightbox{
+.lightbox {
   width:40%;
   height:100%;
   position:fixed;
@@ -222,6 +222,14 @@ label {
 .likedLightbox{
   background:white;
   overflow:scroll;
+  width:40%;
+  height:100%;
+  position:fixed;
+  right:-650px;
+  top:0px;
+  text-align: center;
+  box-shadow: -15px 15px 10px 0 rgba(20, 15, 15, 0.322);
+  z-index:1001;
 }
 .lightbox {
   display: block;
